@@ -32,9 +32,6 @@ public class Archer extends SpriteObject {
         /*Zou iets van een soort gradient moeten teken*/
         power_bar = new Power_bar(1, 2, 4, 5);
 
-
-        world.addGameObject(bow, 100, 200);
-
         System.out.println(getX());
         System.out.println(getY());
 
