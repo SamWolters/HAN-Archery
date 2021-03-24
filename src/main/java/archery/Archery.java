@@ -7,6 +7,8 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.TextObject;
 import nl.han.ica.oopg.view.View;
 
+import java.awt.*;
+
 public class Archery extends GameEngine {
 
     public static void main(String[] args) {
@@ -21,6 +23,7 @@ public class Archery extends GameEngine {
         int worldHeight = 500;
 
         View view = new View(worldWidth, worldHeight);
+        view.setBackground(255, 255,255);
 
         setView(view);
         size(worldWidth, worldHeight);

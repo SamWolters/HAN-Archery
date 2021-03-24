@@ -24,9 +24,9 @@ public class Archer extends SpriteObject {
         setY(150);
 
         this.world = world;
-        bow = new Bow(world);
+        bow = new Bow(world, 100, 200);
 
-        world.addGameObject(bow, 100, 200);
+//        world.addGameObject(bow, 100, 200);
 
         System.out.println(getX());
         System.out.println(getY());
