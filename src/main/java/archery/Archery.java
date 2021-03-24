@@ -32,8 +32,8 @@ public class Archery extends GameEngine {
 //
 //        addGameObject(arrow, 100, 100);
 
-        Archer archer = new Archer(this);
-        addGameObject(archer, 50, 150);
+        Archer archer = new Archer(this, 80, 120);
+        addGameObject(archer, archer.getX(), archer.getY());
     }
 
     @Override

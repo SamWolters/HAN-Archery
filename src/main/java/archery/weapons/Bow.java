@@ -40,8 +40,8 @@ public class Bow extends SpriteObject {
     }
 
     public void shoot() {
-        activeArrow.setSpeed(1);
-        activeArrow.move(mouseX,450);
+//        activeArrow.setSpeed(1);
+        activeArrow.setDVector(mouseX,450);
     }
 
     @Override

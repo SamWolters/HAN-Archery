@@ -21,16 +21,17 @@ public class Archer extends SpriteObject {
      *
      * @param world The sprite
      */
-    public Archer(Archery world) {
+    public Archer(Archery world, float x, float y) {
         super(new Sprite("src/main/java/archery/assets/archer.png"));
-        setX(50);
-        setY(150);
+        setX(x);
+        setY(y);
 
         this.world = world;
         bow = new Bow(world, 100, 200);
 
         /*Zou iets van een soort gradient moeten teken*/
         power_bar = new Power_bar(1, 2, 4, 5);
+        world.addGameObject(power_bar, 100, 20);
 
         System.out.println(getX());
         System.out.println(getY());

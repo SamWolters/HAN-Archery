@@ -3,6 +3,8 @@ package archery.powerbar;
 import archery.Archery;
 import nl.han.ica.oopg.dashboard.Dashboard;
 import processing.core.PGraphics;
+import processing.core.PShape;
+import processing.opengl.PShader;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,14 +18,18 @@ import javax.swing.JPanel;
 
 public class Power_bar extends Dashboard {
 
-
     public Power_bar(float x, float y, float width, float height) {
         super(x, y, width, height);
+
     }
 
     @Override
     public void draw(PGraphics g) {
-        super.draw(g);
+//        super.draw(g)
+
+        g.stroke(255);
+        g.fill(255, 0, 0);
+        g.rect(20, 120, 30, 200);
     }
 
     public void paintPowerBar(Graphics g) {
