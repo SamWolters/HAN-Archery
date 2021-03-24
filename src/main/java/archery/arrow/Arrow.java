@@ -31,7 +31,7 @@ public class Arrow extends SpriteObject {
     @Override
     public void draw(PGraphics g) {
         g.pushMatrix();
-
+        //
         g.translate(getX(), getY());
 
         g.rotate((float) Math.toRadians(rotation));
