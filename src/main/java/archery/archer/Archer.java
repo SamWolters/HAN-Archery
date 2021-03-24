@@ -30,7 +30,7 @@ public class Archer extends SpriteObject {
         bow = new Bow(world, 100, 200);
 
         /*Zou iets van een soort gradient moeten teken*/
-        power_bar = new Power_bar(1, 2, 4, 5);
+        power_bar = new Power_bar();
         world.addGameObject(power_bar, 100, 20);
 
         System.out.println(getX());
