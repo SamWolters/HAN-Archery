@@ -27,7 +27,7 @@ public class Archer extends SpriteObject {
         setY(150);
 
         this.world = world;
-        bow = new Bow(world);
+        bow = new Bow(world, 100, 200);
 
         /*Zou iets van een soort gradient moeten teken*/
         power_bar = new Power_bar(1, 2, 4, 5);
