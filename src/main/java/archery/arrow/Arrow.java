@@ -1,16 +1,19 @@
 package archery.arrow;
 
 import archery.Archery;
+import archery.ground.Ground;
+import archery.ground.GroundTile;
+import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
 import nl.han.ica.oopg.objects.GameObject;
-import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PGraphics;
 import processing.core.PVector;
 
 import java.util.Date;
+import java.util.List;
 
 
-public class Arrow extends GameObject {
+public class Arrow extends GameObject implements ICollidableWithGameObjects {
+    public boolean collided = false;
     Archery world;
 
     float rotation, fixedRotation, speed;
@@ -21,12 +24,7 @@ public class Arrow extends GameObject {
     Boolean launched = false;
     Long lastTimeUpdatesInMs;
 
-    /**
-     * Create a new SpriteObject with a Sprite object.
-     *
-     */
     public Arrow(Archery world, float x, float y) {
-//        super(new Sprite("src/main/java/archery/assets/arrow-2.png"));
 
         this.world = world;
 
@@ -34,6 +32,9 @@ public class Arrow extends GameObject {
         setY(y);
         setZ(3);
         world.addGameObject(this, x, y);
+
+        setWidth(40);
+        setHeight(40);
 
         pos = new PVector(x, y);
     }
@@ -43,14 +44,14 @@ public class Arrow extends GameObject {
         setX(getX() + (float) (speed * Math.sin(fixedRotation)));
         setY(getY() + (float) (speed * Math.cos(fixedRotation)));
 
-        if (this.launched) {
+        if (this.launched && !this.collided) {
             Date date = new Date();
             long timeMillis = date.getTime();
 
             if (lastTimeUpdatesInMs == null) {
-                UpdateProjectile(0);
+                updateProjectile(0);
             } else {
-                UpdateProjectile(timeMillis - lastTimeUpdatesInMs);
+                updateProjectile(timeMillis - lastTimeUpdatesInMs);
             }
             this.lastTimeUpdatesInMs = timeMillis;
         }
@@ -62,46 +63,29 @@ public class Arrow extends GameObject {
 
         g.translate(getX(), getY());
 
-//        if (fixedRotation != 0) {
-//            g.rotate((float) Math.toRadians(-fixedRotation));
-//        } else {
-//            g.rotate((float) Math.toRadians(rotation));
-//        }
-
-//        g.image(getImage(), -width / 2, -height / 2);
         g.fill(255, 0, 0);
-        g.ellipse(40, 40, 40, 40);
+        g.rect(40, 40, 40, 40);
         g.popMatrix();
     }
 
     public void setRotation(float rotation) { this.rotation = rotation; }
 
-    public void setMovement(float mouseY, int speed) {
-        this.speed = speed;
-        this.fixedRotation = rotation;
-
-//        final float x = world.width - 150;
-//
-//        PVector vector = new PVector(0, 0);
-//
-//        final float lengthX = x - getX();
-//        final float lengthY = getY() - mouseY;
-//
-//        System.out.println(lengthY);
-    }
-
-    public void Launch() {
-        forces = new PVector(0, 10);
-        traj = CalcLaunchTrajectory(120, Math.abs(rotation));
+    public void launch(float speed) {
+        forces = setForces(0, 10);
+        traj = calcLaunchTrajectory(speed, Math.abs(rotation));
         launched = true;
     }
 
-    private PVector CalcLaunchTrajectory(float speed, float angle) {
+    private PVector setForces(float wind, float gravity) {
+        return new PVector(wind, gravity);
+    }
+
+    private PVector calcLaunchTrajectory(float speed, float angle) {
         return new PVector((speed * (float) Math.cos(Math.toRadians(angle))),
                             -(speed * (float) Math.sin(Math.toRadians(angle))));
     }
 
-    private void UpdateProjectile(float deltaTime) {
+    private void updateProjectile(float deltaTime) {
         float time = deltaTime * .001f;
         traj = PVector.add(traj, PVector.mult(forces, time));
 
@@ -110,5 +94,15 @@ public class Arrow extends GameObject {
 
         setX((int) pos.x);
         setY((int) pos.y);
+    }
+
+
+    @Override
+    public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
+        for (GameObject gameObject: collidedGameObjects) {
+            if (gameObject instanceof Ground) {
+                this.collided = false;
+            }
+        }
     }
 }

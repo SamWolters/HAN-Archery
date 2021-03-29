@@ -5,11 +5,7 @@ import archery.arrow.Arrow;
 import archery.ground.Ground;
 import nl.han.ica.oopg.dashboard.FPSCounter;
 import nl.han.ica.oopg.engine.GameEngine;
-import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.TextObject;
 import nl.han.ica.oopg.view.View;
-
-import java.awt.*;
 
 public class Archery extends GameEngine {
 
@@ -30,7 +26,7 @@ public class Archery extends GameEngine {
         setView(view);
         size(worldWidth, worldHeight);
 
-        Archer archer = new Archer(this, 80, 445);
+        Archer archer = new Archer(this, 80, 407);
         addGameObject(archer, archer.getX(), archer.getY());
         Ground ground = new Ground((this));
         addGameObject(ground, ground.getX(), ground.getY());

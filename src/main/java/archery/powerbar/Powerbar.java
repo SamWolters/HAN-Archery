@@ -8,7 +8,7 @@ public class Powerbar extends Dashboard {
     private final int min = 0;
     private final int max = 200;
 
-    // 0 = down 1 = up
+    private boolean hold = false;
     private int direction = 1;
 
     public Powerbar(float x, float y, float width, float height) {
@@ -17,8 +17,6 @@ public class Powerbar extends Dashboard {
 
     @Override
     public void draw(PGraphics g) {
-        System.out.println(speed);
-
         g.noStroke();
 
         g.fill(255, 0, 0);
@@ -26,29 +24,37 @@ public class Powerbar extends Dashboard {
 
         g.fill(0);
 
-        if (direction == 0) {
-            g.rect(getX(), (getY() + getHeight()) - (max - speed), getWidth(), 5);
-        } else {
-            g.rect(getX(), getY() + speed, getWidth(), 5);
-        }
+//        if (direction == 0) {
+//            g.rect(getX(), (getY() + getHeight()) - (max - speed), getWidth(), 5);
+//        } else {
+//            g.rect(getX(), getY() + speed, getWidth(), 5);
+//        }
 
+        g.rect(getX(), (getY() + getHeight()) - speed, getWidth(), 5);
     }
 
     @Override
     public void update() {
-        if (speed == max) {
-            direction = 0;
-        } else if (speed == min) {
-            direction = 1;
-        }
+        if (!hold) {
+            if (speed == max) {
+                direction = 0;
+            } else if (speed == min) {
+                direction = 1;
+            }
 
-        switch (direction) {
-            case 0:
-                speed--;
-                break;
-            case 1:
-                speed++;
-                break;
+            switch (direction) {
+                case 0:
+                    speed--;
+                    break;
+                case 1:
+                    speed++;
+                    break;
+            }
         }
+    }
+
+    public float getProjectileSpeed() {
+        hold = true;
+        return speed;
     }
 }

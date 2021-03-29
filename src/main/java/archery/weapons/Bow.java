@@ -39,22 +39,12 @@ public class Bow extends SpriteObject {
         activeArrow = new Arrow(world, getX(), getY());
     }
 
-    public void shoot() {
-//        activeArrow.setSpeed(1);
-//        activeArrow.setDVector(mouseX, mouseY);
-        activeArrow.Launch();
-    }
-
     @Override
     public void update() {
-
-    }
-
-    @Override
-    public void mouseClicked(int x, int y, int button) {
-//        activeArrow.setMovement(mouseY, 1);
-
-        shoot();
+        if (activeArrow.collided) {
+            arrows.add(activeArrow);
+            addArrow();
+        }
     }
 
     @Override
@@ -84,15 +74,10 @@ public class Bow extends SpriteObject {
 
             rotationRequired = rotation;
             activeArrow.setRotation(rotation);
-
-//            float yAngle = y - getCenterY();
-//            float xAngle = x - getCenterX();
-//
-//            float a = (float) Math.toDegrees(Math.atan2(yAngle, xAngle));
-//            rotationRequired = a;
-//
-//            System.out.println(rotationRequired);
-//            activeArrow.setRotation(a);
         }
+    }
+
+    public void releaseProjectile(float speed) {
+        activeArrow.launch(speed);
     }
 }
