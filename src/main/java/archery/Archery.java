@@ -3,6 +3,7 @@ package archery;
 import archery.archer.Archer;
 import archery.arrow.Arrow;
 import archery.ground.Ground;
+import archery.wall.Wall;
 import nl.han.ica.oopg.dashboard.FPSCounter;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.view.View;
@@ -28,8 +29,12 @@ public class Archery extends GameEngine {
 
         Archer archer = new Archer(this, 80, 407);
         addGameObject(archer, archer.getX(), archer.getY());
+
         Ground ground = new Ground((this));
         addGameObject(ground, ground.getX(), ground.getY());
+
+        Wall wall = new Wall((this));
+        addGameObject(wall, ground.getX(), ground.getY());
     }
 
     @Override
