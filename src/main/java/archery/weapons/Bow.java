@@ -12,7 +12,7 @@ public class Bow extends SpriteObject {
     Archery world;
     ArrayList<Arrow> arrows;
     Arrow activeArrow;
-    float mouseX;
+    float mouseY, mouseX;
 
     private float rotationRequired = 90;
 
@@ -36,12 +36,13 @@ public class Bow extends SpriteObject {
     }
 
     private void addArrow() {
-        activeArrow = new Arrow(world, getCenterX(), getCenterY());
+        activeArrow = new Arrow(world, getX(), getY());
     }
 
     public void shoot() {
 //        activeArrow.setSpeed(1);
-        activeArrow.setDVector(mouseX,450);
+//        activeArrow.setDVector(mouseX, mouseY);
+        activeArrow.Launch();
     }
 
     @Override
@@ -51,6 +52,8 @@ public class Bow extends SpriteObject {
 
     @Override
     public void mouseClicked(int x, int y, int button) {
+//        activeArrow.setMovement(mouseY, 1);
+
         shoot();
     }
 
@@ -69,17 +72,27 @@ public class Bow extends SpriteObject {
 
     @Override
     public void mouseMoved(int x, int y) {
+        mouseY = y;
         mouseX = x;
 
-        if (x >= getCenterX()) {
-            float yAngle = y - getCenterY();
-            float xAngle = x - getCenterX();
+        if (x >= getCenterX() && y <= getCenterY()) {
+            float yLength = y - getCenterY();
+            float xLength = x - getCenterX();
 
-            float a = (float) Math.toDegrees(Math.atan2(yAngle, xAngle));
-            rotationRequired = a;
-            activeArrow.setRotation(a);
+            float rotation = (float) Math.toDegrees(Math.tanh(yLength / xLength));
+            System.out.println(rotation);
+
+            rotationRequired = rotation;
+            activeArrow.setRotation(rotation);
+
+//            float yAngle = y - getCenterY();
+//            float xAngle = x - getCenterX();
+//
+//            float a = (float) Math.toDegrees(Math.atan2(yAngle, xAngle));
+//            rotationRequired = a;
+//
+//            System.out.println(rotationRequired);
+//            activeArrow.setRotation(a);
         }
     }
-
-
 }

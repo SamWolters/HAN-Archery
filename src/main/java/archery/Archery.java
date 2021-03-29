@@ -2,6 +2,7 @@ package archery;
 
 import archery.archer.Archer;
 import archery.arrow.Arrow;
+import nl.han.ica.oopg.dashboard.FPSCounter;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.TextObject;
@@ -19,8 +20,8 @@ public class Archery extends GameEngine {
 
     @Override
     public void setupGame() {
-        int worldWidth = 1000;
-        int worldHeight = 500;
+        int worldWidth = 1800;
+        int worldHeight = 800;
 
         View view = new View(worldWidth, worldHeight);
         view.setBackground(255, 255,255);
@@ -28,11 +29,7 @@ public class Archery extends GameEngine {
         setView(view);
         size(worldWidth, worldHeight);
 
-//        Arrow arrow = new Arrow();
-//
-//        addGameObject(arrow, 100, 100);
-
-        Archer archer = new Archer(this, 80, 120);
+        Archer archer = new Archer(this, 80, 420);
         addGameObject(archer, archer.getX(), archer.getY());
     }
 
