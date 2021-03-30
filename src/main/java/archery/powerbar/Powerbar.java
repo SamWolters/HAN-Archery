@@ -55,4 +55,8 @@ public class Powerbar extends Dashboard {
         hold = true;
         return speed * 3;
     }
+
+    public void setHold() {
+        hold = false;
+    }
 }

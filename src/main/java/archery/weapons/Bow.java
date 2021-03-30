@@ -38,6 +38,8 @@ public class Bow extends SpriteObject {
         activeArrow = new Arrow(world, getCenterX(), getCenterY());
     }
 
+    public Arrow getActiveArrow() { return activeArrow; }
+
     @Override
     public void update() {
         if (activeArrow.collided) {

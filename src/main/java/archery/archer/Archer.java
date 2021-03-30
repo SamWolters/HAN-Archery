@@ -1,6 +1,7 @@
 package archery.archer;
 
 import archery.Archery;
+import archery.arrow.Arrow;
 import archery.powerbar.Powerbar;
 import archery.weapons.Bow;
 import nl.han.ica.oopg.objects.Sprite;
@@ -34,7 +35,11 @@ public class Archer extends SpriteObject {
 
     @Override
     public void update() {
+        Arrow arrow = bow.getActiveArrow();
 
+        if (arrow.collided) {
+            powerbar.setHold();
+        }
     }
 
     @Override
