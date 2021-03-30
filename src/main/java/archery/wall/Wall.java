@@ -54,6 +54,6 @@ public class Wall extends GameObject {
     }
 
     private Sprite getWallSprite() {
-        return new Sprite("src/main/java/archery/assets/wall.png");
+        return new Sprite("src/main/java/archery/assets/brick_V2.2.png");
     }
 }
