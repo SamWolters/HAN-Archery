@@ -10,7 +10,7 @@ public class WallTile extends SpriteObject {
      *
      * @param sprite The sprite
      */
-    public WallTile(Sprite sprite) {
+    public WallTile(Sprite sprite, float x, float y) {
         super(sprite);
 
         setX(x);

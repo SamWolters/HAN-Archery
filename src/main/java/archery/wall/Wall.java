@@ -1,36 +1,38 @@
 package archery.wall;
 
 import archery.Archery;
-import archery.ground.GroundTile;
+import archery.arrow.Arrow;
+import archery.ground.Ground;
+import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
 import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PGraphics;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Wall extends GameObject {
 
     Archery world;
-    private ArrayList<GroundTile> tiles;
+    private ArrayList<WallTile> tiles;
+//    final int amountOfWallTiles = 8;
 
     public Wall(Archery world) {
         this.world = world;
 
-//        setWidth(world.width);
+        setWidth(getWallSprite().getWidth());
+        setHeight(world.height);
 
-//        setHeight(50);
+        setX(world.width - getWidth());
+        setY(0);
 
-        setWidth(10);
-        setHeight(10);
-        setX(getWidth() + 100);
+        setZ(1);
 
-        //De Y gedraagd zich als een X, zet de setY waarden maar is naar 200 ofso.
-        //De gehele image is heel groot maar heb hem nu voor een groot deel uit beeld gedaan. Zodat alleen dat linker stukje zichtbaar is.
-        setY(1700);
         tiles = new ArrayList<>();
         createSpriteTiles();
-        setZ(-1);
+
+        System.out.println(getX());
+        System.out.println(getY());
     }
 
     @Override
@@ -40,23 +42,18 @@ public class Wall extends GameObject {
 
     @Override
     public void draw(PGraphics g) {
-        for (GroundTile tile: tiles) {
+        for (WallTile tile: tiles) {
             tile.draw(g);
         }
     }
 
     private void createSpriteTiles() {
-//        int amountOfWallTiles = (int) Math.ceil(world.width / getWallSprite().getHeight()) + 1;
-        int amountOfWallTiles = 1;
-
-        for (int i = 0; i < amountOfWallTiles; i++) {
-            tiles.add(new GroundTile(getWallSprite(), getY() + (getWallSprite().getHeight() * i), getX()));
+        for (int i = 0; i < Math.ceil(world.height / getWallSprite().getHeight()); i++) {
+            tiles.add(new WallTile(getWallSprite(), getX(), getY() + getWallSprite().getHeight() * i));
         }
     }
 
     private Sprite getWallSprite() {
-        Sprite wall;
-        wall = new Sprite("src/main/java/archery/assets/wall.png");
-        return wall;
+        return new Sprite("src/main/java/archery/assets/wall.png");
     }
 }

@@ -3,8 +3,12 @@ package archery.arrow;
 import archery.Archery;
 import archery.ground.Ground;
 import archery.ground.GroundTile;
+import archery.wall.Wall;
+import archery.wall.WallTile;
 import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
 import nl.han.ica.oopg.objects.GameObject;
+import nl.han.ica.oopg.objects.Sprite;
+import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PGraphics;
 import processing.core.PVector;
 
@@ -12,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Arrow extends GameObject implements ICollidableWithGameObjects {
+public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
     public boolean collided = false;
     Archery world;
 
@@ -25,6 +29,7 @@ public class Arrow extends GameObject implements ICollidableWithGameObjects {
     Long lastTimeUpdatesInMs;
 
     public Arrow(Archery world, float x, float y) {
+        super(new Sprite("src/main/java/archery/assets/arrow.png"));
 
         this.world = world;
 
@@ -33,8 +38,8 @@ public class Arrow extends GameObject implements ICollidableWithGameObjects {
         setZ(3);
         world.addGameObject(this, x, y);
 
-        setWidth(40);
-        setHeight(40);
+        setWidth(80);
+        setHeight(16);
 
         pos = new PVector(x, y);
     }
@@ -63,8 +68,16 @@ public class Arrow extends GameObject implements ICollidableWithGameObjects {
 
         g.translate(getX(), getY());
 
-        g.fill(255, 0, 0);
-        g.rect(40, 40, 40, 40);
+        if (fixedRotation != 0) {
+            g.rotate((float) Math.toRadians(-fixedRotation));
+        } else {
+            g.rotate((float) Math.toRadians(rotation));
+        }
+
+        g.image(getImage(), -width / 2, -height / 2);
+
+//        g.fill(255, 0, 0);
+//        g.rect(40, 40, 40, 40);
         g.popMatrix();
     }
 
@@ -100,7 +113,7 @@ public class Arrow extends GameObject implements ICollidableWithGameObjects {
     @Override
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
         for (GameObject gameObject: collidedGameObjects) {
-            if (gameObject instanceof Ground) {
+            if (gameObject instanceof Ground || gameObject instanceof Wall) {
                 this.collided = true;
             }
         }

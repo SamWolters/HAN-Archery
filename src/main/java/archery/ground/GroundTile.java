@@ -1,11 +1,7 @@
 package archery.ground;
 
-import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
-import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
-
-import java.util.List;
 
 public class GroundTile extends SpriteObject {
     /**

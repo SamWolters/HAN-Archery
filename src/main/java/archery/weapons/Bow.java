@@ -12,7 +12,6 @@ public class Bow extends SpriteObject {
     Archery world;
     ArrayList<Arrow> arrows;
     Arrow activeArrow;
-    float mouseY, mouseX;
 
     private float rotationRequired = 90;
 
@@ -36,7 +35,7 @@ public class Bow extends SpriteObject {
     }
 
     private void addArrow() {
-        activeArrow = new Arrow(world, getX(), getY());
+        activeArrow = new Arrow(world, getCenterX(), getCenterY());
     }
 
     @Override
@@ -62,15 +61,11 @@ public class Bow extends SpriteObject {
 
     @Override
     public void mouseMoved(int x, int y) {
-        mouseY = y;
-        mouseX = x;
-
         if (x >= getCenterX() && y <= getCenterY()) {
             float yLength = y - getCenterY();
             float xLength = x - getCenterX();
 
             float rotation = (float) Math.toDegrees(Math.tanh(yLength / xLength));
-            System.out.println(rotation);
 
             rotationRequired = rotation;
             activeArrow.setRotation(rotation);

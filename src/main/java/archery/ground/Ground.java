@@ -19,10 +19,6 @@ public class Ground extends GameObject {
     public Ground(Archery world) {
         this.world = world;
 
-//        setWidth(world.width);
-
-//        setHeight(50);
-
         setWidth(world.width);
         setHeight(getGroundSprite().getHeight());
         setX(0);
@@ -31,7 +27,6 @@ public class Ground extends GameObject {
         createGroundTiles();
         setZ(9);
     }
-
 
     @Override
     public void update() {
@@ -73,11 +68,4 @@ public class Ground extends GameObject {
 
         return ground;
     }
-
-//    @Override
-//    public void draw(PGraphics g) {
-//        g.noStroke();
-//        g.fill();
-//        g.rect(getX(), getY(), getWidth(), getHeight());
-//    }
 }

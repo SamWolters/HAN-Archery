@@ -30,9 +30,6 @@ public class Archer extends SpriteObject {
 
         bow = new Bow(world, getX() + 45, getCenterY() - 70);
 
-        System.out.println(getX());
-        System.out.println(getY());
-
     }
 
     @Override
