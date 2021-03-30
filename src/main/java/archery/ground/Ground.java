@@ -66,6 +66,6 @@ public class Ground extends GameObject {
                 throw new IllegalStateException("Unexpected value: " + rnd.nextInt(3));
         }
 
-        return new Sprite("src/main/java/archery/assets/groundTypes/ground-4.png");
+        return new Sprite("src/main/resources/groundTexture/ground-texture.png");
     }
 }

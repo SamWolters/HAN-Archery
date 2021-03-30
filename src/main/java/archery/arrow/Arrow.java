@@ -29,7 +29,7 @@ public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
     Long lastTimeUpdatesInMs;
 
     public Arrow(Archery world, float x, float y) {
-        super(new Sprite("src/main/java/archery/assets/arrow.png"));
+        super(new Sprite("src/main/resources/arrows/arrow-type-1.png"));
 
         this.world = world;
 

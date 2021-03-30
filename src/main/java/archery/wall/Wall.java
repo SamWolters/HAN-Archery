@@ -49,11 +49,11 @@ public class Wall extends GameObject {
 
     private void createSpriteTiles() {
         for (int i = 0; i < Math.ceil(world.height / getWallSprite().getHeight()); i++) {
-            tiles.add(new WallTile(getWallSprite(), getX(), getY() + getWallSprite().getHeight() * i));
+            tiles.add(new WallTile(getWallSprite(), getX() - 40, getY() + getWallSprite().getHeight() * i));
         }
     }
 
     private Sprite getWallSprite() {
-        return new Sprite("src/main/java/archery/assets/brick_V2.2.png");
+        return new Sprite("src/main/resources/wallTexture/wall-texture.png");
     }
 }

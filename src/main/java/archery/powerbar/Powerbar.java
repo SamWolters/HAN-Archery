@@ -28,18 +28,8 @@ public class Powerbar extends Dashboard {
 
         g.fill(0);
 
-//        if (direction == 0) {
-//            g.rect(getX(), (getY() + getHeight()) - (max - speed), getWidth(), 5);
-//        } else {
-//            g.rect(getX(), getY() + speed, getWidth(), 5);
-//        }
-
         g.rect(getX(), (getY() + getHeight()) - speed, getWidth(), 5);
     }
-
-//    private void updatePowerbar() {
-//        activeArrow = new Powerbar(world, getX(), getY());
-//    }
 
     @Override
     public void update() {
@@ -63,7 +53,7 @@ public class Powerbar extends Dashboard {
 
     public float getProjectileSpeed() {
         hold = true;
-        return speed;
+        return speed * 3;
     }
 
     public void setHold() {
