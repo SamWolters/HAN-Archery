@@ -1,9 +1,13 @@
 package archery.powerbar;
 
 import nl.han.ica.oopg.dashboard.Dashboard;
+import archery.arrow.Arrow;
 import processing.core.PGraphics;
 
 public class Powerbar extends Dashboard {
+    Arrow activeArrow;
+
+    double increment = 2; //Increased dat het balkje sneller op en neer beweegd
     private int speed;
     private final int min = 0;
     private final int max = 200;
@@ -20,7 +24,7 @@ public class Powerbar extends Dashboard {
         g.noStroke();
 
         g.fill(255, 0, 0);
-        g.rect(getX() + 3, getY(), getWidth() -6, getHeight());
+        g.rect(getX() + 3, getY(), getWidth() - 6, getHeight());
 
         g.fill(0);
 
@@ -33,6 +37,10 @@ public class Powerbar extends Dashboard {
         g.rect(getX(), (getY() + getHeight()) - speed, getWidth(), 5);
     }
 
+//    private void updatePowerbar() {
+//        activeArrow = new Powerbar(world, getX(), getY());
+//    }
+
     @Override
     public void update() {
         if (!hold) {
@@ -44,10 +52,10 @@ public class Powerbar extends Dashboard {
 
             switch (direction) {
                 case 0:
-                    speed--;
+                    speed -= increment;
                     break;
                 case 1:
-                    speed++;
+                    speed += increment;
                     break;
             }
         }

@@ -101,7 +101,7 @@ public class Arrow extends GameObject implements ICollidableWithGameObjects {
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
         for (GameObject gameObject: collidedGameObjects) {
             if (gameObject instanceof Ground) {
-                this.collided = false;
+                this.collided = true;
             }
         }
     }
