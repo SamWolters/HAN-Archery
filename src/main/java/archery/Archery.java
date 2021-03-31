@@ -3,6 +3,7 @@ package archery;
 import archery.archer.Archer;
 import archery.ground.Ground;
 import archery.wall.Wall;
+import archery.window.StartWindow;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.view.View;
 
@@ -39,4 +40,11 @@ public class Archery extends GameEngine {
     public void update() {
 
     }
+
+//    @Override
+//    public void update() {
+//        if (!started) {
+//            addDashboard(StartWindow);
+//        }
+//    }
 }

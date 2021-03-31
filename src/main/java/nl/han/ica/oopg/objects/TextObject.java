@@ -113,7 +113,6 @@ public class TextObject extends GameObject {
     /**
      * Gets the green value. (0-225)
      *
-     * @return int
      */
     public int getGreenValue() {
 
