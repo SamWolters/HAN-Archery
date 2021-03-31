@@ -19,7 +19,7 @@ public class Archer extends SpriteObject {
      * @param world The sprite
      */
     public Archer(Archery world, float x, float y) {
-        super(new Sprite("src/main/java/archery/assets/archer.png"));
+        super(new Sprite("src/main/java/archery/assets/archer_V2.2.png"));
         setX(x);
         setY(y);
 

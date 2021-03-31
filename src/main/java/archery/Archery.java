@@ -25,7 +25,7 @@ public class Archery extends GameEngine {
         setView(view);
         size(worldWidth, worldHeight);
 
-        Archer archer = new Archer(this, 80, 407);
+        Archer archer = new Archer(this, 80, 440);
         addGameObject(archer, archer.getX(), archer.getY());
 
         Ground ground = new Ground(this);
