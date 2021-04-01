@@ -2,9 +2,10 @@ package archery.archer;
 
 import archery.Archery;
 import archery.arrow.Arrow;
+import archery.enums.ArrowTypes;
 import archery.powerbar.Powerbar;
 import archery.resources.Resources;
-import archery.weapons.Bow;
+import archery.bow.Bow;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
 
@@ -19,13 +20,13 @@ public class Archer extends SpriteObject {
      *
      * @param world The sprite
      */
-    public Archer(Archery world, float x, float y) {
+    public Archer(Archery world, float x, float y, ArrowTypes arrowType) {
         super(new Sprite(Resources.Images.archer));
         setX(x);
         setY(y);
 
         powerbar = new Powerbar(world,getX() - 50, getY(), 20, 200);
-        bow = new Bow(world, getX() + 45, getCenterY() - 70);
+        bow = new Bow(world, getX() + 80, getCenterY() - 155, arrowType);
     }
 
     @Override

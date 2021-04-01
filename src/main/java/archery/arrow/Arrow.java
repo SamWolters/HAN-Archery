@@ -5,6 +5,8 @@ import archery.ground.Ground;
 import archery.ground.GroundTile;
 import archery.levelManager.LevelManager;
 import archery.resources.Resources;
+import archery.target.Target;
+import archery.targetItems.TargetItem;
 import archery.wall.Wall;
 import archery.wall.WallTile;
 import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
@@ -18,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
+public abstract class Arrow extends SpriteObject implements IArrow {
     public boolean collided = false;
     Archery world;
 
@@ -30,8 +32,8 @@ public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
     Boolean launched = false;
     Long lastTimeUpdatesInMs;
 
-    public Arrow(Archery world, float x, float y) {
-        super(new Sprite(Resources.Images.arrowTypeOne));
+    public Arrow(Archery world, Sprite arrowSprite, float x, float y) {
+        super(arrowSprite);
 
         this.world = world;
 
@@ -40,7 +42,7 @@ public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
         setZ(3);
         world.addGameObject(this,(int) x,(int) y);
 
-        setWidth(80);
+        setWidth(130);
         setHeight(16);
 
         pos = new PVector(x, y);
@@ -62,6 +64,7 @@ public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
             }
             this.lastTimeUpdatesInMs = timeMillis;
         }
+
     }
 
     @Override
@@ -71,36 +74,35 @@ public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
         g.translate(getX(), getY());
 
         if (fixedRotation != 0) {
-            g.rotate((float) Math.toRadians(-fixedRotation));
+            g.rotate((float) Math.toRadians(fixedRotation));
         } else {
             g.rotate((float) Math.toRadians(rotation));
         }
 
         g.image(getImage(), -width / 2, -height / 2);
-
-//        g.fill(255, 0, 0);
-//        g.rect(40, 40, 40, 40);
         g.popMatrix();
     }
 
     public void setRotation(float rotation) { this.rotation = rotation; }
 
     public void launch(float speed) {
+        fixedRotation = rotation;
+
         forces = setForces(0, 10);
         traj = calcLaunchTrajectory(speed, Math.abs(rotation));
         launched = true;
     }
 
-    private PVector setForces(float wind, float gravity) {
+    public PVector setForces(float wind, float gravity) {
         return new PVector(wind, gravity);
     }
 
-    private PVector calcLaunchTrajectory(float speed, float angle) {
+    public PVector calcLaunchTrajectory(float speed, float angle) {
         return new PVector((speed * (float) Math.cos(Math.toRadians(angle))),
                             -(speed * (float) Math.sin(Math.toRadians(angle))));
     }
 
-    private void updateProjectile(float deltaTime) {
+    public void updateProjectile(float deltaTime) {
         float time = deltaTime * .001f;
         traj = PVector.add(traj, PVector.mult(forces, time));
 
@@ -111,14 +113,13 @@ public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
         setY((int) pos.y);
     }
 
-
     @Override
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
         for (GameObject gameObject: collidedGameObjects) {
-            if (gameObject instanceof Ground || gameObject instanceof Wall) {
+            if (gameObject instanceof Ground || gameObject instanceof Wall || gameObject instanceof Target || gameObject instanceof TargetItem) {
                 this.collided = true;
 
-                world.setLevelCompleted();
+//                world.setLevelCompleted();
             }
         }
     }

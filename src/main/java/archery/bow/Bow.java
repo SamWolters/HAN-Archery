@@ -1,8 +1,10 @@
-package archery.weapons;
+package archery.bow;
 
 import archery.Archery;
 import archery.arrow.Arrow;
-import archery.levelManager.LevelManager;
+import archery.arrow.SpeedArrow;
+import archery.arrow.StrengthArrow;
+import archery.enums.ArrowTypes;
 import archery.resources.Resources;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
@@ -11,20 +13,24 @@ import processing.core.PGraphics;
 import java.util.ArrayList;
 
 public class Bow extends SpriteObject {
+    private final int OFFSET_ARROW = 10;
+
     Archery world;
     ArrayList<Arrow> arrows = new ArrayList<>();
     Arrow activeArrow;
 
     private float rotationRequired = 90;
+    private ArrowTypes arrowType;
 
     /**
      * Create a new AnimatedSpriteObject with a Sprite and set the amount of total frames.
      *
      * @param world The world class
      */
-    public Bow(Archery world, float x, float y) {
+    public Bow(Archery world, float x, float y, ArrowTypes arrowType) {
         super(new Sprite(Resources.Images.bow));
         this.world = world;
+        this.arrowType = arrowType;
 
         setX(x);
         setY(y);
@@ -36,7 +42,22 @@ public class Bow extends SpriteObject {
     }
 
     private void addArrow() {
-        activeArrow = new Arrow(world, getCenterX(), getCenterY());
+        switch (arrowType) {
+            case Speed:
+                activeArrow = new SpeedArrow(world, new Sprite(Resources.Images.arrowTypeFour), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                break;
+            case Strength:
+                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.arrowTypeTwo), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                break;
+            case Heavy:
+                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.arrowTypeThree), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                break;
+            case Normal:
+                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.arrowTypeOne), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                break;
+
+        }
+//        activeArrow = new Arrow(world, getCenterX(), getCenterY());
     }
 
     public Arrow getActiveArrow() { return activeArrow; }

@@ -16,6 +16,5 @@ public class WallTile extends SpriteObject {
 
     @Override
     public void update() {
-
     }
 }

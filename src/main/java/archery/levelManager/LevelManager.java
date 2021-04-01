@@ -5,13 +5,10 @@ import archery.archer.Archer;
 import archery.arrow.Arrow;
 import archery.enums.ArrowTypes;
 import archery.enums.TargetItems;
-import archery.weapons.Bow;
-import nl.han.ica.oopg.dashboard.Dashboard;
-import nl.han.ica.oopg.objects.GameObject;
+import archery.bow.Bow;
 import processing.core.PVector;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class LevelManager {
     private ArrayList<Level> levels;
@@ -27,7 +24,6 @@ public class LevelManager {
     private boolean Completed;
 
     public LevelManager(Archery world) {
-
         this.world = world;
 
         createLevels();
@@ -48,7 +44,9 @@ public class LevelManager {
     public void createLevels() {
         levels = new ArrayList<>();
 
-        levels.add(new Level(world, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Normal));
+        levels.add(new Level(world, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Speed));
+        levels.add(new Level(world, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Strength));
+        levels.add(new Level(world, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Heavy));
         levels.add(new Level(world, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Normal));
     }
 
