@@ -1,15 +1,18 @@
 package archery.window;
 
+//import jdk.javadoc.internal.tool.Start;
+import archery.window.StartWindow;
 import nl.han.ica.oopg.dashboard.Dashboard;
 import processing.core.PGraphics;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
-public abstract class Window extends Dashboard {
-    private static float x, y, width, height;
-    private String title;
-    private ArrayList<Buttons> DasboardButtons;
+public class Window extends Dashboard {
+
+    StartWindow start;
+//    private static float x, y, width, height;
+//    private String title;
+//    private ArrayList<Button> DasboardButtons;
 
     public Window(int x, int y, float width, float height) {
         super(x, y, width, height);
@@ -27,9 +30,14 @@ public abstract class Window extends Dashboard {
         drawButtons(g);
     }
 
-    public abstract void drawText(PGraphics g);
+    public void drawText(PGraphics g) {
+        start.drawTextOnButton(g);
 
-    public abstract void drawButtons(PGraphics g);
+    }
+
+    public void drawButtons(PGraphics g) {
+        start.drawButtonsInWindow(g);
+    }
 
     private void mainWindow(PGraphics g) {
         g.noStroke();

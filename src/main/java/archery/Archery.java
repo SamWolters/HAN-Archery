@@ -5,12 +5,14 @@ import archery.ground.Ground;
 import archery.levelManager.LevelManager;
 import archery.wall.Wall;
 import archery.window.StartWindow;
+import archery.window.Window;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.view.View;
+import processing.core.PGraphics;
 
 public class Archery extends GameEngine {
     LevelManager manager;
-    StartWindow window;
+    Window window;
 
     public static void main(String[] args) {
         Archery ac = new Archery();
@@ -39,7 +41,7 @@ public class Archery extends GameEngine {
 //        addGameObject(wall);
 
 
-        window = new StartWindow(getWidth() / 3 + 40, height / 3 - 100, 550, 300);
+        window = new Window(getWidth() / 3 + 40, height / 3 - 100, 550, 300);
         addDashboard(window);
 
         manager = new LevelManager(this);
