@@ -20,8 +20,8 @@ public class Archer extends SpriteObject {
      *
      * @param world The sprite
      */
-    public Archer(Archery world, float x, float y, ArrowTypes arrowType) {
-        super(new Sprite(Resources.Images.archer));
+    public Archer(Archery world, float x, float y) {
+        super(new Sprite(Resources.Images.ARCHER));
         setX(x);
         setY(y);
 
