@@ -1,6 +1,7 @@
 package archery.powerbar;
 
 import archery.Archery;
+import archery.resources.Resources;
 import nl.han.ica.oopg.dashboard.Dashboard;
 import archery.arrow.Arrow;
 import processing.core.PGraphics;
@@ -12,6 +13,9 @@ public class Powerbar extends Dashboard {
     private int speed;
     private final int min = 0;
     private final int max = 200;
+
+    private final String HIGH = "HIGH";
+    private final String LOW = "LOW";
 
     private boolean hold = false;
     private int direction = 1;
@@ -25,6 +29,11 @@ public class Powerbar extends Dashboard {
     @Override
     public void draw(PGraphics g) {
         g.noStroke();
+
+        g.textSize(Resources.Text.FONTSIZE_S - 5);
+        g.textAlign(CENTER);
+        g.text(HIGH, getX() + 8, getY() - 10);
+        g.text(LOW, getX() + 8, getY() + getHeight() + 20);
 
         g.fill(255, 0, 0);
         g.rect(getX() + 3, getY(), getWidth() - 6, getHeight());

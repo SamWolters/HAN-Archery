@@ -4,15 +4,17 @@ import archery.archer.Archer;
 import archery.ground.Ground;
 import archery.levelManager.LevelManager;
 import archery.wall.Wall;
-import archery.window.StartWindow;
-import archery.window.Window;
+import archery.window.*;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.view.View;
 import processing.core.PGraphics;
 
 public class Archery extends GameEngine {
     LevelManager manager;
-    StartWindow window;
+    StartWindow start;
+    GameOverWindow game_over;
+    LevelAchievedWindow level_achieved;
+    UsernameWindow username;
 
     public static void main(String[] args) {
         Archery ac = new Archery();
@@ -31,8 +33,23 @@ public class Archery extends GameEngine {
         setView(view);
         size(worldWidth, worldHeight);
 
-        window = new StartWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
-        addGameObject(window);
+//        start = new StartWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
+//        addGameObject(start);
+
+//        game_over = new GameOverWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
+//        addGameObject(game_over);
+
+//        level_achieved = new LevelAchievedWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
+//        addGameObject(level_achieved);
+
+        username = new UsernameWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
+        addGameObject(username);
+
+
+
+
+
+
 
         manager = new LevelManager(this);
         manager.loadLevel(manager.getActiveLevel());

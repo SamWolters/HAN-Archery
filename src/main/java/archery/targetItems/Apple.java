@@ -55,6 +55,6 @@ public class Apple extends SpriteObject implements TargetItem {
     public void mouseMoved(int x, int y) {
         super.mouseMoved(x, y);
 
-        System.out.println(x);
+//        System.out.println(x); //Heb deze effe uitgecomment want de console slaat op hol lol
     }
 }

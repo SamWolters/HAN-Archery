@@ -13,20 +13,28 @@ public class StartWindow extends Window {
     private Archery world;
 
     public ArrayList<Button> buttons;
+    private String STARTGAME_TXT = "Start game";
+    private String HIGHSCORES_TXT = "Highscores";
+    private String WINDOW_TITLE = "Archery";
 
     public StartWindow(Archery world, int x, int y, float width, float height) {
         super(x, y, width, height);
         this.world = world;
 
         buttons = new ArrayList<>();
-        addButton(500, 250, 400, 100, "Start Game", Resources.Text.FONTSIZE_XS);
 
-        TextObject d = createTextObject("hallo", Resources.Text.FONTSIZE_M, 400, 400);
+        //Start game button
+        addButton((int) (getX() + getWidth() / 5 - 20), (int) (getY() + getHeight() / 3), getWidth() / 3 * 2, getHeight() / 6, STARTGAME_TXT, Resources.Text.FONTSIZE_S - 3);
 
-        world.addGameObject(d);
+        //Highscores button
+        addButton((int) (getX() + getWidth() / 6), (int) (getY() + getHeight() / 3 + 65), getWidth() / 3 * 2, getHeight() / 6, HIGHSCORES_TXT, Resources.Text.FONTSIZE_S - 3);
+
+        TextObject txtOb = createTextObject(WINDOW_TITLE, Resources.Text.FONTSIZE_M, getX() + getWidth() / 3 + 15, getY());
+
+        world.addGameObject(txtOb);
     }
 
-    public void addButton(float x, float y, int width, int height, String title, int textSize) {
+    public void addButton(int x, int y, float width, float height, String title, int textSize) {
         buttons.add(new Button(world, x, y, width, height, title, textSize));
     }
 

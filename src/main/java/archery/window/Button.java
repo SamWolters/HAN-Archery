@@ -25,6 +25,7 @@ public class Button extends GameObject implements IMouseInput {
     @Override
     public void mousePressed(int x, int y, int button) {
 
+//            System.out.println("button ingedrukt");
 
     }
 
@@ -35,8 +36,8 @@ public class Button extends GameObject implements IMouseInput {
 
     @Override
     public void mouseClicked(int x, int y, int button) {
-
-
+        if (x >= getX() && x <= getX() + getWidth() || y >= getY() && x <= getY() + getHeight())
+            System.out.println("Button geklikt");
     }
 
     @Override
@@ -62,12 +63,17 @@ public class Button extends GameObject implements IMouseInput {
 
     @Override
     public void draw(PGraphics g) {
-        g.fill(255, 0,0);
+        g.fill(196, 196, 196);
         g.rect(getX(), getY(), getWidth(), getHeight());
 
         g.fill(0);
         g.textSize(textSize);
         g.textAlign(CENTER);
-        g.text(text, getX() + getWidth() / 2, getY() + getHeight() / 2);
+        g.text(text, getX() + getWidth() / 2, getY() + getHeight() / 2 + 10);
+
+//        System.out.println(getWidth());
+//        System.out.println(getHeight());
+//        System.out.println(getX());
+//        System.out.println(getY());
     }
 }

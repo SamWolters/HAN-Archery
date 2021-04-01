@@ -22,11 +22,11 @@ public class Resources {
     }
 
     public static class Text {
-        public static int FONTSIZE_XS = 20;
-        public static int FONTSIZE_S = 30;
+        public static int FONTSIZE_XS = 10;
+        public static int FONTSIZE_S = 25;
         public static int FONTSIZE_M = 40;
-        public static int FONTSIZE_L = 50;
-        public static int FONTSIZE_XL = 60;
+        public static int FONTSIZE_L = 55;
+        public static int FONTSIZE_XL = 70;
     }
 }
 
