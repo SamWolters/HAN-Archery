@@ -39,7 +39,7 @@ public class Archery extends GameEngine {
 //        addGameObject(wall);
 
 
-        window = new StartWindow(getWidth() / 3 + 50, height / 3 - 100, 550, 300);
+        window = new StartWindow(getWidth() / 3 + 40, height / 3 - 100, 550, 300);
         addDashboard(window);
 
         manager = new LevelManager(this);
@@ -52,7 +52,6 @@ public class Archery extends GameEngine {
             manager.nextLevel();
             manager.deletePrevLevelObjects();
             manager.loadLevel(manager.getActiveLevel());
-
         }
     }
 
@@ -64,7 +63,4 @@ public class Archery extends GameEngine {
     public void mouseMoved() {
         super.mouseMoved();
     }
-
-
-
 }
