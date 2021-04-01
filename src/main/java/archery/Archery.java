@@ -4,11 +4,13 @@ import archery.archer.Archer;
 import archery.ground.Ground;
 import archery.levelManager.LevelManager;
 import archery.wall.Wall;
+import archery.window.StartWindow;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.view.View;
 
 public class Archery extends GameEngine {
     LevelManager manager;
+    StartWindow window;
 
     public static void main(String[] args) {
         Archery ac = new Archery();
@@ -36,6 +38,10 @@ public class Archery extends GameEngine {
 //        Wall wall = new Wall(this);
 //        addGameObject(wall);
 
+
+        window = new StartWindow(getWidth() / 3 + 50, height / 3 - 100, 550, 300);
+        addDashboard(window);
+
         manager = new LevelManager(this);
         manager.loadLevel(manager.getActiveLevel());
     }
@@ -43,9 +49,7 @@ public class Archery extends GameEngine {
     @Override
     public void update() {
         if (manager.getActiveLevel().isCompleted()) {
-
             manager.nextLevel();
-
             manager.deletePrevLevelObjects();
             manager.loadLevel(manager.getActiveLevel());
 
@@ -60,4 +64,7 @@ public class Archery extends GameEngine {
     public void mouseMoved() {
         super.mouseMoved();
     }
+
+
+
 }

@@ -5,7 +5,7 @@ public class Resources {
 
 
     public static class Images {
-        public static final String archer = baseUrl + "archer/archer.png";
+        public static final String ARCHER = baseUrl + "archer/archer.png";
         public static final String bow = baseUrl + "bow/bow.png";
         public static final String arrowTypeOne = baseUrl + "arrows/arrow-type-1.png";
         public static final String arrowTypeTwo = baseUrl + "arrows/arrow-type-2.png";
@@ -19,6 +19,14 @@ public class Resources {
 
         public static final String ground = baseUrl + "groundTexture/ground-texture.png";
         public static final String wall = baseUrl + "wallTexture/wall-texture.png";
+    }
+
+    public static class Text {
+        public static int FONTSIZE_XS = 20;
+        public static int FONTSIZE_S = 30;
+        public static int FONTSIZE_M = 40;
+        public static int FONTSIZE_L = 50;
+        public static int FONTSIZE_XL = 60;
     }
 }
 
