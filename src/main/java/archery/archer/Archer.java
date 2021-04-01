@@ -19,8 +19,9 @@ public class Archer extends SpriteObject {
      * Create a new SpriteObject with a Sprite object.
      *
      * @param world The sprite
+     * @param arrowType
      */
-    public Archer(Archery world, float x, float y) {
+    public Archer(Archery world, float x, float y, ArrowTypes arrowType) {
         super(new Sprite(Resources.Images.ARCHER));
         setX(x);
         setY(y);
