@@ -23,14 +23,8 @@ public class Archer extends SpriteObject {
         setX(x);
         setY(y);
 
-        this.world = world;
-
-        powerbar = new Powerbar(getX() - 50, getY(), 20, 200);
-        world.addDashboard(powerbar);
-
-
+        powerbar = new Powerbar(world,getX() - 50, getY(), 20, 200);
         bow = new Bow(world, getX() + 45, getCenterY() - 70);
-
     }
 
     @Override

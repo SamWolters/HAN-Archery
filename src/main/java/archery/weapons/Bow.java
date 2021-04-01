@@ -2,6 +2,7 @@ package archery.weapons;
 
 import archery.Archery;
 import archery.arrow.Arrow;
+import archery.levelManager.LevelManager;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PGraphics;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 
 public class Bow extends SpriteObject {
     Archery world;
-    ArrayList<Arrow> arrows;
+    ArrayList<Arrow> arrows = new ArrayList<>();
     Arrow activeArrow;
 
     private float rotationRequired = 90;
@@ -28,9 +29,8 @@ public class Bow extends SpriteObject {
         setY(y);
         setZ(2);
 
-        world.addGameObject(this, x, y);
+        world.addGameObject(this,(int) x,(int) y);
 
-        arrows = new ArrayList<>();
         addArrow();
     }
 

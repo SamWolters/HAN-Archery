@@ -117,7 +117,7 @@ public abstract class GameEngine extends PApplet {
         if (!gameObjects.contains(gameObject)) {
         	gameObjects.add(gameObject);
         } else {
-        	throw new GameEngineRuntimeException("The same object is added twice. This is not allowed for performance reasons. Please fix your code (do NOT catch this exception).");
+        	throw new GameEngineRuntimeException("The same object is added twice. This is not allowed for performance reasons. Please fix your code (do NOT catch this exception)." + gameObject.toString());
         }
     }
 

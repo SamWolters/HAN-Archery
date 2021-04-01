@@ -1,5 +1,6 @@
 package archery.powerbar;
 
+import archery.Archery;
 import nl.han.ica.oopg.dashboard.Dashboard;
 import archery.arrow.Arrow;
 import processing.core.PGraphics;
@@ -15,8 +16,10 @@ public class Powerbar extends Dashboard {
     private boolean hold = false;
     private int direction = 1;
 
-    public Powerbar(float x, float y, float width, float height) {
+    public Powerbar(Archery world, float x, float y, float width, float height) {
         super(x, y, width, height);
+
+        world.addGameObject(this);
     }
 
     @Override

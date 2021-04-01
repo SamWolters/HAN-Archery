@@ -3,6 +3,7 @@ package archery.arrow;
 import archery.Archery;
 import archery.ground.Ground;
 import archery.ground.GroundTile;
+import archery.levelManager.LevelManager;
 import archery.wall.Wall;
 import archery.wall.WallTile;
 import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
@@ -36,7 +37,7 @@ public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
         setX(x);
         setY(y);
         setZ(3);
-        world.addGameObject(this, x, y);
+        world.addGameObject(this,(int) x,(int) y);
 
         setWidth(80);
         setHeight(16);
@@ -115,6 +116,8 @@ public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
         for (GameObject gameObject: collidedGameObjects) {
             if (gameObject instanceof Ground || gameObject instanceof Wall) {
                 this.collided = true;
+
+                world.setLevelCompleted();
             }
         }
     }
