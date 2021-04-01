@@ -3,6 +3,7 @@ package archery.weapons;
 import archery.Archery;
 import archery.arrow.Arrow;
 import archery.levelManager.LevelManager;
+import archery.resources.Resources;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PGraphics;
@@ -22,7 +23,7 @@ public class Bow extends SpriteObject {
      * @param world The world class
      */
     public Bow(Archery world, float x, float y) {
-        super(new Sprite("src/main/java/archery/assets/bow2.png"));
+        super(new Sprite(Resources.Images.bow));
         this.world = world;
 
         setX(x);

@@ -4,6 +4,7 @@ import archery.Archery;
 import archery.ground.Ground;
 import archery.ground.GroundTile;
 import archery.levelManager.LevelManager;
+import archery.resources.Resources;
 import archery.wall.Wall;
 import archery.wall.WallTile;
 import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
@@ -30,7 +31,7 @@ public class Arrow extends SpriteObject implements ICollidableWithGameObjects {
     Long lastTimeUpdatesInMs;
 
     public Arrow(Archery world, float x, float y) {
-        super(new Sprite("src/main/resources/arrows/arrow-type-1.png"));
+        super(new Sprite(Resources.Images.arrowTypeOne));
 
         this.world = world;
 

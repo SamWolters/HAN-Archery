@@ -3,6 +3,7 @@ package archery.archer;
 import archery.Archery;
 import archery.arrow.Arrow;
 import archery.powerbar.Powerbar;
+import archery.resources.Resources;
 import archery.weapons.Bow;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
@@ -19,7 +20,7 @@ public class Archer extends SpriteObject {
      * @param world The sprite
      */
     public Archer(Archery world, float x, float y) {
-        super(new Sprite("src/main/java/archery/assets/archer_V2.2.png"));
+        super(new Sprite(Resources.Images.archer));
         setX(x);
         setY(y);
 
