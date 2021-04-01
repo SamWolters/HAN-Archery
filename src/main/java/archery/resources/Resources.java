@@ -16,6 +16,9 @@ public class Resources {
         public static final String targetItemApple = baseUrl + "targetItems/apple.png";
 //        public static final String arrowTypeFour = baseUrl + "arrows/arrow-type-4.png";
 //        public static final String arrowTypeFour = baseUrl + "arrows/arrow-type-4.png";
+
+        public static final String ground = baseUrl + "groundTexture/ground-texture.png";
+        public static final String wall = baseUrl + "wallTexture/wall-texture.png";
     }
 }
 

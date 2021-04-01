@@ -20,9 +20,9 @@ public class Ground extends GameObject {
         this.world = world;
 
         setWidth(world.width);
-        setHeight(getGroundSprite().getHeight());
+        setHeight(GroundTile.groundSprite.getHeight());
         setX(0);
-        setY(world.height - getGroundSprite().getHeight());
+        setY(world.height - GroundTile.groundSprite.getHeight());
         tiles = new ArrayList<>();
         createGroundTiles();
         setZ(9);
@@ -41,31 +41,10 @@ public class Ground extends GameObject {
     }
 
     private void createGroundTiles() {
-        int amountOfGroundTiles = (int) Math.ceil(world.width / getGroundSprite().getWidth()) + 1;
+        int amountOfGroundTiles = (int) Math.ceil(world.width / GroundTile.groundSprite.getWidth()) + 1;
 
         for (int i = 0; i < amountOfGroundTiles; i++) {
-            tiles.add(new GroundTile(getGroundSprite(), getX() + (getGroundSprite().getWidth() * i), getY()));
+            tiles.add(new GroundTile(getX() + (GroundTile.groundSprite.getWidth() * i), getY()));
         }
-    }
-
-    private Sprite getGroundSprite() {
-        Random rnd = new Random();
-        Sprite ground;
-        
-        switch (rnd.nextInt(3)) {
-            case 0:
-                ground = new Sprite("src/main/java/archery/assets/groundTypes/ground-type-1.png");
-            break;
-            case 1:
-                ground = new Sprite("src/main/java/archery/assets/groundTypes/ground-type-2.png");
-            break;
-            case 2:
-                ground = new Sprite("src/main/java/archery/assets/groundTypes/ground-type-3.png");
-            break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + rnd.nextInt(3));
-        }
-
-        return new Sprite("src/main/resources/groundTexture/ground-texture.png");
     }
 }

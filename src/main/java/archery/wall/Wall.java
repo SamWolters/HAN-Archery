@@ -20,7 +20,7 @@ public class Wall extends GameObject {
     public Wall(Archery world) {
         this.world = world;
 
-        setWidth(getWallSprite().getWidth());
+        setWidth(WallTile.wallSprite.getWidth());
         setHeight(world.height);
 
         setX(world.width - getWidth());
@@ -48,12 +48,8 @@ public class Wall extends GameObject {
     }
 
     private void createSpriteTiles() {
-        for (int i = 0; i < Math.ceil(world.height / getWallSprite().getHeight()); i++) {
-            tiles.add(new WallTile(getWallSprite(), getX() - 40, getY() + getWallSprite().getHeight() * i));
+        for (int i = 0; i < Math.ceil(world.height / WallTile.wallSprite.getHeight()); i++) {
+            tiles.add(new WallTile(getX() - 40, getY() + WallTile.wallSprite.getHeight() * i));
         }
-    }
-
-    private Sprite getWallSprite() {
-        return new Sprite("src/main/resources/wallTexture/wall-texture.png");
     }
 }
