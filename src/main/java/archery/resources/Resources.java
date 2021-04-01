@@ -1,24 +1,24 @@
 package archery.resources;
 
 public class Resources {
-    private static final String baseUrl = "src/main/resources/";
+    private static final String SRC_MAIN_RESOURCES = "src/main/resources/";
 
 
     public static class Images {
-        public static final String ARCHER = baseUrl + "archer/archer.png";
-        public static final String bow = baseUrl + "bow/bow.png";
-        public static final String arrowTypeOne = baseUrl + "arrows/arrow-type-1.png";
-        public static final String arrowTypeTwo = baseUrl + "arrows/arrow-type-2.png";
-        public static final String arrowTypeThree = baseUrl + "arrows/arrow-type-3.png";
-        public static final String arrowTypeFour = baseUrl + "arrows/arrow-type-4.png";
+        public static final String ARCHER = SRC_MAIN_RESOURCES + "archer/archer.png";
+        public static final String BOW = SRC_MAIN_RESOURCES + "bow/bow.png";
+        public static final String ARROW_TYPE_ONE = SRC_MAIN_RESOURCES + "arrows/arrow-type-1.png";
+        public static final String ARROW_TYPE_TWO = SRC_MAIN_RESOURCES + "arrows/arrow-type-2.png";
+        public static final String ARROW_TYPE_THREE = SRC_MAIN_RESOURCES + "arrows/arrow-type-3.png";
+        public static final String ARROW_TYPE_FOUR = SRC_MAIN_RESOURCES + "arrows/arrow-type-4.png";
 
-        public static final String targetPerson = baseUrl + "targetPerson/target-person.png";
-        public static final String targetItemApple = baseUrl + "targetItems/apple.png";
+        public static final String TARGET_PERSON = SRC_MAIN_RESOURCES + "targetPerson/target-person.png";
+        public static final String TARGET_ITEM_APPLE = SRC_MAIN_RESOURCES + "targetItems/apple.png";
 //        public static final String arrowTypeFour = baseUrl + "arrows/arrow-type-4.png";
 //        public static final String arrowTypeFour = baseUrl + "arrows/arrow-type-4.png";
 
-        public static final String ground = baseUrl + "groundTexture/ground-texture.png";
-        public static final String wall = baseUrl + "wallTexture/wall-texture.png";
+        public static final String GROUND = SRC_MAIN_RESOURCES + "groundTexture/ground-texture.png";
+        public static final String WALL = SRC_MAIN_RESOURCES + "wallTexture/wall-texture.png";
     }
 
     public static class Text {

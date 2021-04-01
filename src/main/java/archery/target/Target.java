@@ -20,8 +20,8 @@ public class Target extends SpriteObject {
      * @param world The sprite
      */
     public Target(Archery world, int x, int y, TargetItems targetItem) {
-        super(new Sprite(Resources.Images.targetPerson));
-        person = new Sprite(Resources.Images.targetPerson);
+        super(new Sprite(Resources.Images.TARGET_PERSON));
+        person = new Sprite(Resources.Images.TARGET_PERSON);
 
         setX(x + 60);
         setY(y);

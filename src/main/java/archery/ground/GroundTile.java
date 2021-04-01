@@ -5,7 +5,7 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
 
 public class GroundTile extends SpriteObject {
-    public static Sprite groundSprite = new Sprite(Resources.Images.ground);
+    public static Sprite groundSprite = new Sprite(Resources.Images.GROUND);
 
     public GroundTile(float x, float y) {
         super(groundSprite);

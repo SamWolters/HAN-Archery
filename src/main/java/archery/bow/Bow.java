@@ -28,7 +28,7 @@ public class Bow extends SpriteObject {
      * @param world The world class
      */
     public Bow(Archery world, float x, float y, ArrowTypes arrowType) {
-        super(new Sprite(Resources.Images.bow));
+        super(new Sprite(Resources.Images.BOW));
         this.world = world;
         this.arrowType = arrowType;
 
@@ -44,16 +44,16 @@ public class Bow extends SpriteObject {
     private void addArrow() {
         switch (arrowType) {
             case Speed:
-                activeArrow = new SpeedArrow(world, new Sprite(Resources.Images.arrowTypeFour), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                activeArrow = new SpeedArrow(world, new Sprite(Resources.Images.ARROW_TYPE_FOUR), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
                 break;
             case Strength:
-                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.arrowTypeTwo), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.ARROW_TYPE_TWO), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
                 break;
             case Heavy:
-                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.arrowTypeThree), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.ARROW_TYPE_THREE), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
                 break;
             case Normal:
-                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.arrowTypeOne), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.ARROW_TYPE_ONE), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
                 break;
 
         }
