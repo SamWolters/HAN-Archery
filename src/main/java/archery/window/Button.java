@@ -1,18 +1,25 @@
 package archery.window;
 
+import archery.Archery;
 import archery.resources.Resources;
 import nl.han.ica.oopg.dashboard.Dashboard;
+import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.userinput.IMouseInput;
 import processing.core.PGraphics;
 
-public class Button extends Dashboard implements IMouseInput {
+public class Button extends GameObject implements IMouseInput {
 
-    private String title;
-    public final int BUTTONWIDTH = 300;
-    public final int BUTTONHEIGHT = 50;
+    private String text;
+    private int textSize;
 
-    public Button(float x, float y, float width, float height) {
+    public Button(Archery world, float x, float y, float width, float height, String text, int textSize) {
         super(x, y, width, height);
+        setZ(10);
+
+        this.text = text;
+        this.textSize = textSize;
+
+        world.addGameObject(this);
     }
 
     @Override
@@ -49,32 +56,18 @@ public class Button extends Dashboard implements IMouseInput {
 
 
     @Override
+    public void update() {
+
+    }
+
+    @Override
     public void draw(PGraphics g) {
-        drawButton(g);
-        drawTitleInButton(g);
-    }
+        g.fill(255, 0,0);
+        g.rect(getX(), getY(), getWidth(), getHeight());
 
-        public void drawButton(PGraphics g) {
-        g.fill(196, 196, 196);
-        g.rect(getX() , getY() , getWidth(), getWidth());
-        g.rect(getX() + getWidth() / 3 - 65, getY() + getHeight() / 2 + BUTTONHEIGHT, BUTTONWIDTH, BUTTONHEIGHT);
-    }
-
-
-//    public void drawButton(PGraphics g) {
-//        g.fill(196, 196, 196);
-//        g.rect(getX() + getWidth() / 3 - 65, getY() + getHeight() / 3, BUTTONWIDTH, BUTTONHEIGHT);
-//        g.rect(getX() + getWidth() / 3 - 65, getY() + getHeight() / 2 + BUTTONHEIGHT, BUTTONWIDTH, BUTTONHEIGHT);
-//    }
-
-//    public void drawTitleInButton(PGraphics g) {
-//        g.textAlign(CENTER);
-//        g.textSize(Resources.Text.FONTSIZE_S);
-//        g.fill(0, 0, 0);
-//        g.text(title, getX() + getWidth() / 2 + BUTTONHEIGHT, getY() + getHeight() / 3 + 35);
-//    }
-
-    public void setTitle(String title) {
-        this.title = title;
+        g.fill(0);
+        g.textSize(textSize);
+        g.textAlign(CENTER);
+        g.text(text, getX() + getWidth() / 2, getY() + getHeight() / 2);
     }
 }

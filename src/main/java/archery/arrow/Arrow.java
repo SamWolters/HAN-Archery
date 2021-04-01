@@ -119,6 +119,7 @@ public abstract class Arrow extends SpriteObject implements IArrow {
             if (gameObject instanceof Ground || gameObject instanceof Wall || gameObject instanceof Target || gameObject instanceof TargetItem) {
                 this.collided = true;
 
+                System.out.println(gameObject.getClass());
 //                world.setLevelCompleted();
             }
         }

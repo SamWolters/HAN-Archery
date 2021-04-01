@@ -12,18 +12,21 @@ import processing.core.PVector;
 public class Level {
 
     private Archery world;
+    public int id;
     private PVector forces;
     private TargetItems targetItem;
     private ArrowTypes arrowType;
 
     private Archer archer;
     private Target target;
+    private LevelDashboard dashboard;
 
     private boolean completed;
 
-    public Level(Archery world, PVector forces, TargetItems targetItem, ArrowTypes arrowType) {
+    public Level(Archery world, int id, PVector forces, TargetItems targetItem, ArrowTypes arrowType) {
         this.world = world;
 
+        this.id = id;
         this.forces = forces;
         this.targetItem = targetItem;
         this.arrowType = arrowType;
@@ -40,6 +43,9 @@ public class Level {
         world.addGameObject(archer);
 
         target = new Target(world, (int) (world.width - wall.getWidth() - 160), (int) (world.height - (ground.getHeight() + 280)), targetItem);
+
+        dashboard = new LevelDashboard(this ,10,10, 300, 300);
+        world.addDashboard(dashboard);
     }
 
     public void setCompleted() {

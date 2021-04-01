@@ -44,10 +44,10 @@ public class LevelManager {
     public void createLevels() {
         levels = new ArrayList<>();
 
-        levels.add(new Level(world, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Speed));
-        levels.add(new Level(world, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Strength));
-        levels.add(new Level(world, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Heavy));
-        levels.add(new Level(world, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Normal));
+        levels.add(new Level(world, 1, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Speed));
+        levels.add(new Level(world, 2, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Strength));
+        levels.add(new Level(world, 3, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Heavy));
+        levels.add(new Level(world, 4, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Normal));
     }
 
     public void loadLevel(Level level) {

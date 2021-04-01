@@ -22,6 +22,8 @@ public class Apple extends SpriteObject implements TargetItem {
 
         setX(x);
         setY(y);
+        
+        System.out.println("Plaatsen: " + x);
     }
 
     @Override
@@ -47,5 +49,12 @@ public class Apple extends SpriteObject implements TargetItem {
     @Override
     public void update() {
 
+    }
+
+    @Override
+    public void mouseMoved(int x, int y) {
+        super.mouseMoved(x, y);
+
+        System.out.println(x);
     }
 }

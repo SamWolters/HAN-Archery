@@ -12,7 +12,7 @@ import processing.core.PGraphics;
 
 public class Archery extends GameEngine {
     LevelManager manager;
-    Window window;
+    StartWindow window;
 
     public static void main(String[] args) {
         Archery ac = new Archery();
@@ -31,18 +31,8 @@ public class Archery extends GameEngine {
         setView(view);
         size(worldWidth, worldHeight);
 
-//        Archer archer = new Archer(this, 80, 407);
-//        addGameObject(archer, archer.getX(), archer.getY());
-//
-//        Ground ground = new Ground(this);
-//        addGameObject(ground);
-//
-//        Wall wall = new Wall(this);
-//        addGameObject(wall);
-
-
-        window = new Window(getWidth() / 3 + 40, height / 3 - 100, 550, 300);
-        addDashboard(window);
+        window = new StartWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
+        addGameObject(window);
 
         manager = new LevelManager(this);
         manager.loadLevel(manager.getActiveLevel());

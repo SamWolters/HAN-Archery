@@ -30,9 +30,6 @@ public class Wall extends GameObject {
 
         tiles = new ArrayList<>();
         createSpriteTiles();
-
-        System.out.println(getX());
-        System.out.println(getY());
     }
 
     @Override
