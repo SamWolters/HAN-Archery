@@ -19,7 +19,7 @@ public class Bow extends SpriteObject {
     ArrayList<Arrow> arrows = new ArrayList<>();
     Arrow activeArrow;
 
-    private float rotationRequired = 90;
+    private float rotationRequired = 0;
     private ArrowTypes arrowType;
 
     /**
@@ -85,7 +85,7 @@ public class Bow extends SpriteObject {
 
     @Override
     public void mouseMoved(int x, int y) {
-        if (x >= getCenterX() && y <= getCenterY()) {
+        if (x >= getCenterX() && y <= getCenterY() && world.levelStarted) {
             float yLength = y - getCenterY();
             float xLength = x - getCenterX();
 

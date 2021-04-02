@@ -9,6 +9,7 @@ import archery.target.Target;
 import archery.targetItems.TargetItem;
 import archery.wall.Wall;
 import archery.wall.WallTile;
+import archery.window.GameOverWindow;
 import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
 import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
@@ -116,11 +117,15 @@ public abstract class Arrow extends SpriteObject implements IArrow {
     @Override
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
         for (GameObject gameObject: collidedGameObjects) {
-            if (gameObject instanceof Ground || gameObject instanceof Wall || gameObject instanceof Target || gameObject instanceof TargetItem) {
+            if (gameObject instanceof Ground || gameObject instanceof Wall) {
                 this.collided = true;
 
                 System.out.println(gameObject.getClass());
 //                world.setLevelCompleted();
+            }
+
+            if (gameObject instanceof Target) {
+                world.addGameObject(new GameOverWindow(world,world.getWidth() / 3, world.getHeight() / 4, world.getWidth() / 3, 300));
             }
         }
     }

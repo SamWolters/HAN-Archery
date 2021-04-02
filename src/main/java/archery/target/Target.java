@@ -45,7 +45,7 @@ public class Target extends SpriteObject {
     private void loadTargetItem(Archery world, TargetItems targetItem) {
         switch (targetItem) {
             case Apple:
-                item = new Apple(world, 500, getY() - Apple.appleSprite.getHeight());
+                item = new Apple(world, getX(), getY() - Apple.appleSprite.getHeight());
                 break;
         }
     }

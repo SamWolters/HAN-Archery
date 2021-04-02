@@ -6,6 +6,7 @@ import archery.resources.Resources;
 import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
+import processing.core.PGraphics;
 
 import java.util.List;
 
@@ -22,8 +23,11 @@ public class Apple extends SpriteObject implements TargetItem {
 
         setX(x);
         setY(y);
-        
-        System.out.println("Plaatsen: " + x);
+    }
+
+    @Override
+    public void draw(PGraphics g) {
+        g.image(appleSprite.getPImage(), x - appleSprite.getWidth(), y);
     }
 
     @Override
@@ -43,7 +47,6 @@ public class Apple extends SpriteObject implements TargetItem {
                 takeDamage(((Arrow) gameObject).doDamage());
             }
         }
-
     }
 
     @Override

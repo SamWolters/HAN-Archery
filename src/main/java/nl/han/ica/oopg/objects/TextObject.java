@@ -8,6 +8,8 @@ import processing.core.PGraphics;
 public class TextObject extends GameObject {
 
     private String text;
+    private int alignX = LEFT;
+    private int alignY = TOP;
     private int fontSize;
     private int r, g, b, alpha = 255;
 
@@ -21,6 +23,19 @@ public class TextObject extends GameObject {
 
         setText(text);
         setFontSize(fontSize);
+    }
+
+    /**
+     * Create a new TextObject.
+     *
+     * @param text     The text
+     * @param fontSize The fontsize in points
+     */
+    public TextObject(String text, int fontSize, int alignX, int alignY) {
+        setText(text);
+        setFontSize(fontSize);
+        setAlignX(alignX);
+        setAlignY(alignY);
     }
 
     /**
@@ -38,7 +53,7 @@ public class TextObject extends GameObject {
     public void draw(PGraphics g) {
 
         g.fill(this.r, this.g, this.b, this.alpha);
-	g.textAlign(g.LEFT, g.TOP);
+	    g.textAlign(alignX, alignY);
         g.textSize(fontSize);
         g.text(text, x, y);
     }
@@ -51,6 +66,14 @@ public class TextObject extends GameObject {
     public void setText(String text) {
 
         this.text = text;
+    }
+
+    public void setAlignX(int alignX) {
+        this.alignX = alignX;
+    }
+
+    public void setAlignY(int alignY) {
+        this.alignY = alignY;
     }
 
     /**

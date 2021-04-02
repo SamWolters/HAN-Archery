@@ -19,6 +19,7 @@ public class LevelDashboard extends Dashboard {
         g.textSize(Resources.Text.FONTSIZE_S);
         g.text("Level: " + level.id, 70, 40);
 
+
 //        g.textSize(Resources.Text.FONTSIZE_XS);
 //        g.text("Arrow shot: " + level.id, 80, 70);
     }

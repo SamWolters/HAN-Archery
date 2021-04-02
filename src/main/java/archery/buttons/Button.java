@@ -1,4 +1,4 @@
-package archery.window;
+package archery.buttons;
 
 import archery.Archery;
 import archery.resources.Resources;
@@ -35,14 +35,8 @@ public class Button extends GameObject implements IMouseInput {
     }
 
     @Override
-    public void mouseClicked(int x, int y, int button) {
-        if (x >= getX() && x <= getX() + getWidth() || y >= getY() && x <= getY() + getHeight())
-            System.out.println("Button geklikt");
-    }
-
-    @Override
     public void mouseMoved(int x, int y) {
-
+        System.out.println(x);
     }
 
     @Override
@@ -63,9 +57,12 @@ public class Button extends GameObject implements IMouseInput {
 
     @Override
     public void draw(PGraphics g) {
+        g.stroke(255);
+        g.strokeWeight(1);
         g.fill(196, 196, 196);
         g.rect(getX(), getY(), getWidth(), getHeight());
 
+        g.noStroke();
         g.fill(0);
         g.textSize(textSize);
         g.textAlign(CENTER);

@@ -14,7 +14,8 @@ public class Archery extends GameEngine {
     StartWindow start;
     GameOverWindow game_over;
     LevelAchievedWindow level_achieved;
-    UsernameWindow username;
+
+    public boolean levelStarted = false;
 
     public static void main(String[] args) {
         Archery ac = new Archery();
@@ -33,23 +34,8 @@ public class Archery extends GameEngine {
         setView(view);
         size(worldWidth, worldHeight);
 
-//        start = new StartWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
-//        addGameObject(start);
-
-//        game_over = new GameOverWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
-//        addGameObject(game_over);
-
-//        level_achieved = new LevelAchievedWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
-//        addGameObject(level_achieved);
-
-        username = new UsernameWindow(this,getWidth() / 3 + 40, height / 3 - 100, 550, 300);
-        addGameObject(username);
-
-
-
-
-
-
+        start = new StartWindow(this,getWidth() / 3, height / 4, getWidth() / 3, 300);
+        addGameObject(start);
 
         manager = new LevelManager(this);
         manager.loadLevel(manager.getActiveLevel());
@@ -71,5 +57,17 @@ public class Archery extends GameEngine {
     @Override
     public void mouseMoved() {
         super.mouseMoved();
+    }
+
+    public void startGame() {
+        levelStarted = true;
+        start.delete();
+    }
+
+    public void reset() {
+        levelStarted = false;
+
+        start = new StartWindow(this,getWidth() / 3, height / 4, getWidth() / 3, 300);
+        addGameObject(start);
     }
 }

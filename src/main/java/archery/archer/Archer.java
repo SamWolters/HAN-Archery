@@ -26,6 +26,8 @@ public class Archer extends SpriteObject {
         setX(x);
         setY(y);
 
+        this.world = world;
+
         powerbar = new Powerbar(world,getX() - 50, getY(), 20, 200);
         bow = new Bow(world, getX() + 80, getCenterY() - 155, arrowType);
     }
@@ -41,6 +43,8 @@ public class Archer extends SpriteObject {
 
     @Override
     public void mouseClicked(int x, int y, int button) {
-        bow.releaseProjectile(powerbar.getProjectileSpeed());
+        if (world.levelStarted) {
+            bow.releaseProjectile(powerbar.getProjectileSpeed());
+        }
     }
 }
