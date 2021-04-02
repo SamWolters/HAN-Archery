@@ -1,36 +1,20 @@
 package archery.window;
 
 import archery.Archery;
-import archery.buttons.Button;
+import archery.buttons.*;
 import archery.resources.Resources;
-import nl.han.ica.oopg.objects.TextObject;
-
-import java.util.ArrayList;
 
 public class LevelAchievedWindow extends Window {
 
-    private Archery world;
-
-    public ArrayList<Button> buttons;
-    private String NEXTLEVEL = "Next level ->";
-    private String WINDOW_TITLE = "Level achieved!";
-
     public LevelAchievedWindow(Archery world, int x, int y, float width, float height) {
         super(world, x, y, width, height);
-        this.world = world;
 
-        buttons = new ArrayList<>();
+        gameObjects.add(new QuitButton(world,getX() + getWidth() / 5 - 50 , getY() + getHeight() - 80, getWidth() / 3, getHeight() / 6,  "Quit", Resources.Text.FONTSIZE_S));
+        gameObjects.add(new NextLevelButton(world,getX() + getWidth() / 2 + 40, getY() + getHeight() - 80, getWidth() / 3, getHeight() / 6,  "Next level", Resources.Text.FONTSIZE_S));
 
-        //Next level button
-        addButton((int) (getX() + getWidth() / 5 - 15), (int) (getY() + getHeight() - 70), getWidth() / 3 * 2, getHeight() / 6, NEXTLEVEL, Resources.Text.FONTSIZE_S - 3);
-
-        TextObject txtOb = textObject(WINDOW_TITLE, Resources.Text.FONTSIZE_M, getX() + getWidth() / 3 - 50, getY());
-
-        world.addGameObject(txtOb);
-    }
-
-    public void addButton(int x, int y, float width, float height, String title, int textSize) {
-        buttons.add(new Button(world, x, y, width, height, title, textSize));
+        gameObjects.add(textObject("Level achieved!", Resources.Text.FONTSIZE_L, getX() + getWidth() / 2, getY() + 20));
+        gameObjects.add(textObject("Continue to the next level", Resources.Text.FONTSIZE_XS, getX() + getWidth() / 2, getY() + 90));
+        gameObjects.add(textObject("or go back to start", Resources.Text.FONTSIZE_XS, getX() + getWidth() / 2, getY() + 115));
     }
 
     @Override

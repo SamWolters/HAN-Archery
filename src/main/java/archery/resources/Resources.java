@@ -14,8 +14,9 @@ public class Resources {
 
         public static final String TARGET_PERSON = SRC_MAIN_RESOURCES + "targetPerson/target-person.png";
         public static final String TARGET_ITEM_APPLE = SRC_MAIN_RESOURCES + "targetItems/apple.png";
-//        public static final String arrowTypeFour = baseUrl + "arrows/arrow-type-4.png";
-//        public static final String arrowTypeFour = baseUrl + "arrows/arrow-type-4.png";
+        public static final String TARGET_ITEM_FLOWERPOT = SRC_MAIN_RESOURCES + "targetItems/flowerpot.png";
+        public static final String TARGET_ITEM_BALLOON = SRC_MAIN_RESOURCES + "targetItems/balloon.png";
+        public static final String TARGET_ITEM_VASE = SRC_MAIN_RESOURCES + "targetItems/vase.png";
 
         public static final String GROUND = SRC_MAIN_RESOURCES + "groundTexture/ground-texture.png";
         public static final String WALL = SRC_MAIN_RESOURCES + "wallTexture/wall-texture.png";

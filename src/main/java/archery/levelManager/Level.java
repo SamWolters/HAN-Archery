@@ -44,7 +44,7 @@ public class Level {
 
         target = new Target(world, (int) (world.width - wall.getWidth() - 160), (int) (world.height - (ground.getHeight() + 280)), targetItem);
 
-        dashboard = new LevelDashboard(this ,10,10, 300, 300);
+        dashboard = new LevelDashboard(this ,0,0, 200, 100);
         world.addDashboard(dashboard);
     }
 

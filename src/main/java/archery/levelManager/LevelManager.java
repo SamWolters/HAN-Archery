@@ -1,11 +1,8 @@
 package archery.levelManager;
 
 import archery.Archery;
-import archery.archer.Archer;
-import archery.arrow.Arrow;
 import archery.enums.ArrowTypes;
 import archery.enums.TargetItems;
-import archery.bow.Bow;
 import processing.core.PVector;
 
 import java.util.ArrayList;
@@ -16,12 +13,6 @@ public class LevelManager {
     private Level prevLevel;
 
     private Archery world;
-
-    private Archer archer;
-    private Bow bow;
-    private Arrow arrow;
-
-    private boolean Completed;
 
     public LevelManager(Archery world) {
         this.world = world;
@@ -44,9 +35,9 @@ public class LevelManager {
     public void createLevels() {
         levels = new ArrayList<>();
 
-        levels.add(new Level(world, 1, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Speed));
-        levels.add(new Level(world, 2, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Strength));
-        levels.add(new Level(world, 3, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Heavy));
+        levels.add(new Level(world, 1, new PVector(0, 10), TargetItems.Balloon, ArrowTypes.Speed));
+        levels.add(new Level(world, 2, new PVector(0, 10), TargetItems.Vase, ArrowTypes.Strength));
+        levels.add(new Level(world, 3, new PVector(0, 10), TargetItems.Flowerpot, ArrowTypes.Heavy));
         levels.add(new Level(world, 4, new PVector(0, 10), TargetItems.Apple, ArrowTypes.Normal));
     }
 

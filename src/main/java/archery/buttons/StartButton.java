@@ -10,8 +10,6 @@ public class StartButton extends Button {
         super(world, x, y, width, height, text, textSize);
 
         this.world = world;
-
-        System.out.println("Locatie: " + x);
     }
 
     @Override

@@ -1,8 +1,6 @@
 package archery.targetItems;
 
-import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
-
-public interface TargetItem extends ICollidableWithGameObjects {
+public interface TargetItem {
     void takeDamage(int damage);
     int getHealth();
 }

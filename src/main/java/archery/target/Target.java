@@ -3,8 +3,7 @@ package archery.target;
 import archery.Archery;
 import archery.enums.TargetItems;
 import archery.resources.Resources;
-import archery.targetItems.Apple;
-import archery.targetItems.TargetItem;
+import archery.targetItems.*;
 import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
@@ -46,6 +45,15 @@ public class Target extends SpriteObject {
         switch (targetItem) {
             case Apple:
                 item = new Apple(world, getX(), getY() - Apple.appleSprite.getHeight());
+                break;
+            case Vase:
+                item = new Vase(world, getX(), getY() - Vase.vaseSprite.getHeight());
+                break;
+            case Flowerpot:
+                item = new Flowerpot(world, getX(), getY() - Flowerpot.flowerpotSprite.getHeight());
+                break;
+            case Balloon:
+                item = new Balloon(world, getX(), getY() - Balloon.balloonSprite.getHeight());
                 break;
         }
     }

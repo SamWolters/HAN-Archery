@@ -32,6 +32,7 @@ public class Powerbar extends Dashboard {
 
         g.textSize(Resources.Text.FONTSIZE_S - 5);
         g.textAlign(CENTER);
+        g.fill(0);
         g.text(HIGH, getX() + 8, getY() - 10);
         g.text(LOW, getX() + 8, getY() + getHeight() + 20);
 

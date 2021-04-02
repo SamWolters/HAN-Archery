@@ -15,12 +15,12 @@ public class LevelDashboard extends Dashboard {
 
     @Override
     public void draw(PGraphics g) {
+        g.noStroke();
+        g.fill(66, 178,247);
+        g.rect(getX(), getY(), getWidth(), getHeight());
+
         g.fill(0);
         g.textSize(Resources.Text.FONTSIZE_S);
-        g.text("Level: " + level.id, 70, 40);
-
-
-//        g.textSize(Resources.Text.FONTSIZE_XS);
-//        g.text("Arrow shot: " + level.id, 80, 70);
+        g.text("Level: " + level.id, getX() + 30, getY() + 50);
     }
 }

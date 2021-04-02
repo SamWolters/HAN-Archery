@@ -1,6 +1,7 @@
 package archery.buttons;
 
 import archery.Archery;
+import archery.window.GameOverWindow;
 
 public class TryAgainButton extends Button {
     private Archery world;

@@ -29,7 +29,7 @@ public class Archer extends SpriteObject {
         this.world = world;
 
         powerbar = new Powerbar(world,getX() - 50, getY(), 20, 200);
-        bow = new Bow(world, getX() + 80, getCenterY() - 155, arrowType);
+        bow = new Bow(world, getX() + 80, getCenterY() - 185, arrowType);
     }
 
     @Override

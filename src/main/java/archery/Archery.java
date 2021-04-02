@@ -12,8 +12,6 @@ import processing.core.PGraphics;
 public class Archery extends GameEngine {
     LevelManager manager;
     StartWindow start;
-    GameOverWindow game_over;
-    LevelAchievedWindow level_achieved;
 
     public boolean levelStarted = false;
 
@@ -50,10 +48,6 @@ public class Archery extends GameEngine {
         }
     }
 
-    public void setLevelCompleted() {
-        manager.getActiveLevel().setCompleted();
-    }
-
     @Override
     public void mouseMoved() {
         super.mouseMoved();
@@ -65,9 +59,38 @@ public class Archery extends GameEngine {
     }
 
     public void reset() {
-        levelStarted = false;
+        deleteAllGameOBjects();
+
+        levelStarted = true;
+
+        manager.setActiveLevel(0);
+        manager.loadLevel(manager.getActiveLevel());
+    }
+
+    public void quit() {
+        deleteAllGameOBjects();
 
         start = new StartWindow(this,getWidth() / 3, height / 4, getWidth() / 3, 300);
         addGameObject(start);
+
+        levelStarted = false;
+
+        manager.setActiveLevel(0);
+        manager.loadLevel(manager.getActiveLevel());
+    }
+
+    public void nextLevel() {
+        deleteAllGameOBjects();
+
+        manager.nextLevel();
+        manager.loadLevel(manager.getActiveLevel());
+    }
+
+    public void setLevelStarted(boolean levelStarted) {
+        this.levelStarted = levelStarted;
+    }
+
+    public boolean getLevelStarted() {
+        return levelStarted;
     }
 }

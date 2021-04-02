@@ -1,33 +1,33 @@
 package archery.targetItems;
 
 import archery.Archery;
-import archery.arrow.Arrow;
 import archery.resources.Resources;
-import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PGraphics;
 
-import java.util.List;
+import java.util.Random;
 
-public class Apple extends SpriteObject implements TargetItem {
+public class Balloon extends SpriteObject implements TargetItem {
     private int health = 150;
     private Archery world;
 
-    public static final Sprite appleSprite = new Sprite(Resources.Images.TARGET_ITEM_APPLE);
+    public static final Sprite balloonSprite = new Sprite(Resources.Images.TARGET_ITEM_BALLOON);
 
-    public Apple(Archery world, float x, float y) {
-        super(appleSprite);
+    public Balloon(Archery world, float x, float y) {
+        super(balloonSprite);
 
         this.world = world;
 
         setX(x);
         setY(y);
+        setWidth(30);
+        setHeight(30);
     }
 
     @Override
     public void draw(PGraphics g) {
-        g.image(appleSprite.getPImage(), x - appleSprite.getWidth(), y);
+        g.image(balloonSprite.getPImage(), x - balloonSprite.getWidth(), y);
     }
 
     public void takeDamage(int damage) {
@@ -40,6 +40,5 @@ public class Apple extends SpriteObject implements TargetItem {
 
     @Override
     public void update() {
-
     }
 }

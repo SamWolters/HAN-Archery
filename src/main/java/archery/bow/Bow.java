@@ -64,7 +64,7 @@ public class Bow extends SpriteObject {
 
     @Override
     public void update() {
-        if (activeArrow.collided) {
+        if (activeArrow != null && activeArrow.collided) {
             arrows.add(activeArrow);
             addArrow();
         }

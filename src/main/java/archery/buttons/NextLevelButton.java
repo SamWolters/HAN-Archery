@@ -2,10 +2,10 @@ package archery.buttons;
 
 import archery.Archery;
 
-public class QuitButton extends Button {
+public class NextLevelButton extends Button {
     private Archery world;
 
-    public QuitButton(Archery world, float x, float y, float width, float height, String text, int textSize) {
+    public NextLevelButton(Archery world, float x, float y, float width, float height, String text, int textSize) {
         super(world, x, y, width, height, text, textSize);
 
         this.world = world;
@@ -14,7 +14,7 @@ public class QuitButton extends Button {
     @Override
     public void mouseClicked(int x, int y, int button) {
         if ((x >= getX() && x <= getX() + getWidth()) && (y >= getY() && y <= getY() + getHeight())) {
-            world.quit();
+            world.nextLevel();
         }
     }
 }
