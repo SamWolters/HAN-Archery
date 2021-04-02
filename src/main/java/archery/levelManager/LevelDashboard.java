@@ -22,11 +22,5 @@ public class LevelDashboard extends Dashboard {
         g.fill(0);
         g.textSize(Resources.Text.FONTSIZE_S);
         g.text("Level: " + level.id, getX() + 30, getY() + 50);
-
-        g.textSize(Resources.Text.FONTSIZE_XS);
-        g.text("Wind: " + level.forces.x, getX() + 30, getY() + 80);
-
-        g.textSize(Resources.Text.FONTSIZE_XS);
-        g.text("Gravity: " + level.forces.y, getX() + 30, getY() + 100);
     }
 }
