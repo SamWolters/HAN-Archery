@@ -9,7 +9,7 @@ import processing.core.PGraphics;
 import java.util.Random;
 
 public class Balloon extends SpriteObject implements TargetItem {
-    private int health = 150;
+    private int health = 100;
     private Archery world;
 
     public static final Sprite balloonSprite = new Sprite(Resources.Images.TARGET_ITEM_BALLOON);

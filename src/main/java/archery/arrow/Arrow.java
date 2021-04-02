@@ -9,6 +9,7 @@ import archery.target.Target;
 import archery.targetItems.TargetItem;
 import archery.wall.Wall;
 import archery.wall.WallTile;
+import archery.window.GameEndedWindow;
 import archery.window.GameOverWindow;
 import archery.window.LevelAchievedWindow;
 import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
@@ -27,6 +28,8 @@ public abstract class Arrow extends SpriteObject implements IArrow {
     Archery world;
 
     float rotation, fixedRotation, speed;
+    int speedMultiplier = 1;
+    int gravityEffect = 0;
 
     PVector pos;
     PVector forces = new PVector(0, 0);
@@ -58,8 +61,8 @@ public abstract class Arrow extends SpriteObject implements IArrow {
         }
 
 
-        setX(getX() + (float) (speed * Math.sin(fixedRotation)));
-        setY(getY() + (float) (speed * Math.cos(fixedRotation)));
+        setX(getX() + (float) ((speed * speedMultiplier) * Math.sin(fixedRotation)));
+        setY(getY() + (float) ((speed * speedMultiplier) * Math.cos(fixedRotation)));
 
         if (this.launched && !this.collided) {
             Date date = new Date();
@@ -96,7 +99,7 @@ public abstract class Arrow extends SpriteObject implements IArrow {
     public void launch(float speed) {
         fixedRotation = rotation;
 
-        forces = setForces(0, 10);
+        forces = setForces(0, 10 + gravityEffect);
         traj = calcLaunchTrajectory(speed, Math.abs(rotation));
         launched = true;
     }
@@ -144,8 +147,13 @@ public abstract class Arrow extends SpriteObject implements IArrow {
                     ((TargetItem) gameObject).takeDamage(doDamage());
 
                     if (((TargetItem) gameObject).getHealth() <= 0) {
-                        LevelAchievedWindow levelAchievedWindow = new LevelAchievedWindow(world,world.getWidth() / 3, world.getHeight() / 4, world.getWidth() / 3, 300);
-                        world.addGameObject(levelAchievedWindow);
+                        if (world.nextLevelExist()) {
+                            LevelAchievedWindow levelAchievedWindow = new LevelAchievedWindow(world,world.getWidth() / 3, world.getHeight() / 4, world.getWidth() / 3, 300);
+                            world.addGameObject(levelAchievedWindow);
+                        } else {
+                            GameEndedWindow gameEndedWindow = new GameEndedWindow(world,world.getWidth() / 3, world.getHeight() / 4, world.getWidth() / 3, 300);
+                            world.addGameObject(gameEndedWindow);
+                        }
                     }
                 }
             }

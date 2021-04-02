@@ -93,4 +93,8 @@ public class Archery extends GameEngine {
     public boolean getLevelStarted() {
         return levelStarted;
     }
+
+    public boolean nextLevelExist() {
+        return manager.nextLevelExists();
+    }
 }

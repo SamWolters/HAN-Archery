@@ -3,13 +3,15 @@ package archery.arrow;
 import archery.Archery;
 import nl.han.ica.oopg.objects.Sprite;
 
-public class StrengthArrow extends Arrow{
-    public StrengthArrow(Archery world, Sprite arrowSprite, float x, float y) {
+public class HeavyArrow  extends Arrow {
+    public HeavyArrow(Archery world, Sprite arrowSprite, float x, float y) {
         super(world, arrowSprite, x, y);
+
+        gravityEffect = 30;
     }
 
     @Override
     public int doDamage() {
-        return 200;
+        return 100;
     }
 }

@@ -7,7 +7,7 @@ import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PGraphics;
 
 public class Vase extends SpriteObject implements TargetItem {
-    private int health = 150;
+    private int health = 200;
     private Archery world;
 
     public static final Sprite vaseSprite = new Sprite(Resources.Images.TARGET_ITEM_VASE);

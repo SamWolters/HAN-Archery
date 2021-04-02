@@ -1,9 +1,7 @@
 package archery.bow;
 
 import archery.Archery;
-import archery.arrow.Arrow;
-import archery.arrow.SpeedArrow;
-import archery.arrow.StrengthArrow;
+import archery.arrow.*;
 import archery.enums.ArrowTypes;
 import archery.resources.Resources;
 import nl.han.ica.oopg.objects.Sprite;
@@ -50,14 +48,12 @@ public class Bow extends SpriteObject {
                 activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.ARROW_TYPE_TWO), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
                 break;
             case Heavy:
-                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.ARROW_TYPE_THREE), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                activeArrow = new HeavyArrow(world, new Sprite(Resources.Images.ARROW_TYPE_THREE), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
                 break;
             case Normal:
-                activeArrow = new StrengthArrow(world, new Sprite(Resources.Images.ARROW_TYPE_ONE), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
+                activeArrow = new NormalArrow(world, new Sprite(Resources.Images.ARROW_TYPE_ONE), getCenterX() - OFFSET_ARROW, getCenterY() - OFFSET_ARROW);
                 break;
-
         }
-//        activeArrow = new Arrow(world, getCenterX(), getCenterY());
     }
 
     public Arrow getActiveArrow() { return activeArrow; }

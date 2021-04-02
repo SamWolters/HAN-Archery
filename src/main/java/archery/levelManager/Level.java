@@ -13,7 +13,7 @@ public class Level {
 
     private Archery world;
     public int id;
-    private PVector forces;
+    public PVector forces;
     private TargetItems targetItem;
     private ArrowTypes arrowType;
 

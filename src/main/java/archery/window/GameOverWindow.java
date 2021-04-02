@@ -4,6 +4,7 @@ import archery.Archery;
 import archery.buttons.QuitButton;
 import archery.buttons.TryAgainButton;
 import archery.resources.Resources;
+
 public class GameOverWindow extends Window {
 
     public GameOverWindow(Archery world, int x, int y, float width, float height) {
