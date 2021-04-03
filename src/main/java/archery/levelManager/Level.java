@@ -17,7 +17,6 @@ public class Level {
     private TargetItems targetItem;
     private ArrowTypes arrowType;
     private Archer archer;
-    private Target target;
     private LevelDashboard dashboard;
 
     /**
@@ -56,7 +55,7 @@ public class Level {
         archer = new Archer(world, 80, world.height - (ground.getHeight() + 280), arrowType);
         world.addGameObject(archer);
 
-        target = new Target(world, (int) (world.width - wall.getWidth() - 160), (int) (world.height - (ground.getHeight() + 280)), targetItem);
+        Target target = new Target(world, (int) (world.width - wall.getWidth() - 160), (int) (world.height - (ground.getHeight() + 280)), targetItem);
 
         dashboard = new LevelDashboard(this ,0,0, 200, 100);
         world.addDashboard(dashboard);

@@ -12,9 +12,6 @@ public class Powerbar extends Dashboard {
     private final int min = 0;
     private final int max = 200;
 
-    private final String HIGH = "HIGH";
-    private final String LOW = "LOW";
-
     private boolean hold = false;
     private int direction = 1;
 
@@ -48,8 +45,8 @@ public class Powerbar extends Dashboard {
         g.textAlign(CENTER);
 
         g.fill(0);
-        g.text(HIGH, getX() + 8, getY() - 10);
-        g.text(LOW, getX() + 8, getY() + getHeight() + 20);
+        g.text("HIGH", getX() + 8, getY() - 10);
+        g.text("LOW", getX() + 8, getY() + getHeight() + 20);
 
         g.fill(255, 0, 0);
         g.rect(getX() + 3, getY(), getWidth() - 6, getHeight());

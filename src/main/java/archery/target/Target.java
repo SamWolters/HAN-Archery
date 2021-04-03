@@ -36,8 +36,7 @@ public class Target extends SpriteObject {
     }
 
     @Override
-    public void update() {
-    }
+    public void update() { }
 
     /**
      * Adds person to the world.
