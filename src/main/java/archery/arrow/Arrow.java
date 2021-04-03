@@ -37,6 +37,19 @@ public abstract class Arrow extends SpriteObject implements IArrow {
     Boolean launched = false;
     Long lastTimeUpdatesInMs;
 
+    /**
+     * Loads in the SpriteObject of the arrow
+     * By means of the X and Y position the arrow gets placed
+     * into the world
+     *
+     *
+     *
+     * @param world         Loads the whole world
+     * @param arrowSprite   Loads the sprite of the arrow
+     * @param x             X position of the arrow
+     * @param y             Y position of the arrow
+     */
+
     public Arrow(Archery world, Sprite arrowSprite, float x, float y) {
         super(arrowSprite);
 
