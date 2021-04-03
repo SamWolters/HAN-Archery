@@ -1,9 +1,15 @@
 package archery.resources;
 
 public class Resources {
+    /**
+     * Loads in the URL location of the resources
+     */
     private static final String SRC_MAIN_RESOURCES = "src/main/resources/";
 
 
+    /**
+     * Sets the URL to a public variable
+     */
     public static class Images {
         public static final String ARCHER = SRC_MAIN_RESOURCES + "archer/archer.png";
         public static final String BOW = SRC_MAIN_RESOURCES + "bow/bow.png";
@@ -22,6 +28,9 @@ public class Resources {
         public static final String WALL = SRC_MAIN_RESOURCES + "wallTexture/wall-texture.png";
     }
 
+    /**
+     * Sets textsize to a public variable
+     */
     public static class Text {
         public static int FONTSIZE_XS = 18;
         public static int FONTSIZE_S = 28;
