@@ -1,17 +1,13 @@
 package archery;
 
-import archery.archer.Archer;
-import archery.ground.Ground;
 import archery.levelManager.LevelManager;
-import archery.wall.Wall;
-import archery.window.*;
+import archery.window.StartWindow;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.view.View;
-import processing.core.PGraphics;
 
 public class Archery extends GameEngine {
-    LevelManager manager;
-    StartWindow start;
+    private LevelManager manager;
+    private StartWindow start;
 
     public boolean levelStarted = false;
 
@@ -46,11 +42,6 @@ public class Archery extends GameEngine {
             manager.deletePrevLevelObjects();
             manager.loadLevel(manager.getActiveLevel());
         }
-    }
-
-    @Override
-    public void mouseMoved() {
-        super.mouseMoved();
     }
 
     public void startGame() {

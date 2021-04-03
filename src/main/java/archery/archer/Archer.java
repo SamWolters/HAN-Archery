@@ -32,6 +32,13 @@ public class Archer extends SpriteObject {
         bow = new Bow(world, getX() + 80, getCenterY() - 185, arrowType);
     }
 
+    /**
+     * Gets the active arrow from bow and checks if the arrow
+     * has collided with another gameObject. If so the powerbar
+     * method setHold() is called
+     *
+     * @see #powerbar
+     */
     @Override
     public void update() {
         Arrow arrow = bow.getActiveArrow();
@@ -41,6 +48,18 @@ public class Archer extends SpriteObject {
         }
     }
 
+    /**
+     * When the mouse is clicked this event will check
+     * if the level was started. If the level was started
+     * the bow will release the arrow at the given speed from powerbar
+     *
+     * @param x         The x position of the mouse
+     * @param y         The y position of the mouse
+     * @param button    The id of pressed mouse button
+     *
+     * @see #bow
+     * @see #powerbar
+     */
     @Override
     public void mouseClicked(int x, int y, int button) {
         if (world.levelStarted) {
