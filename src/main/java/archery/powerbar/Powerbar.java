@@ -58,6 +58,9 @@ public class Powerbar extends Dashboard {
         g.rect(getX(), (getY() + getHeight()) - speed, getWidth(), 5);
     }
 
+    /**
+     * Moved the powerbar slider up and down
+     */
     @Override
     public void update() {
         if (!hold) {
@@ -78,11 +81,19 @@ public class Powerbar extends Dashboard {
         }
     }
 
+    /**
+     * Get the projectile speed and set hold to true
+     *
+     * @return speed * 3
+     */
     public float getProjectileSpeed() {
         hold = true;
         return speed * 3;
     }
 
+    /**
+     * Sets hold to false
+     */
     public void setHold() {
         hold = false;
     }

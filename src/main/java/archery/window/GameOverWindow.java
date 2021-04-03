@@ -7,6 +7,15 @@ import archery.resources.Resources;
 
 public class GameOverWindow extends Window {
 
+    /**
+     * Creates a new game window, buttons and text
+     *
+     * @param world         The main class of the application
+     * @param x             The x position
+     * @param y             The y position
+     * @param width         The window width
+     * @param height        The window height
+     */
     public GameOverWindow(Archery world, int x, int y, float width, float height) {
         super(world, x, y, width, height);
 
@@ -18,7 +27,5 @@ public class GameOverWindow extends Window {
     }
 
     @Override
-    public void update() {
-
-    }
+    public void update() { }
 }

@@ -2,12 +2,19 @@ package archery.window;
 
 import archery.Archery;
 import archery.buttons.QuitButton;
-import archery.buttons.StartButton;
-import archery.buttons.TryAgainButton;
 import archery.resources.Resources;
 
 public class GameEndedWindow  extends Window {
 
+    /**
+     * Creates a new game window, buttons and text
+     *
+     * @param world         The main class of the application
+     * @param x             The x position
+     * @param y             The y position
+     * @param width         The window width
+     * @param height        The window height
+     */
     public GameEndedWindow(Archery world, int x, int y, float width, float height) {
         super(world, x, y, width, height);
 
@@ -16,7 +23,5 @@ public class GameEndedWindow  extends Window {
     }
 
     @Override
-    public void update() {
-
-    }
+    public void update() { }
 }

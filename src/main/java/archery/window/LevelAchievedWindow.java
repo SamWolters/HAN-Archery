@@ -6,6 +6,15 @@ import archery.resources.Resources;
 
 public class LevelAchievedWindow extends Window {
 
+    /**
+     * Creates a new game window, buttons and text
+     *
+     * @param world         The main class of the application
+     * @param x             The x position
+     * @param y             The y position
+     * @param width         The window width
+     * @param height        The window height
+     */
     public LevelAchievedWindow(Archery world, int x, int y, float width, float height) {
         super(world, x, y, width, height);
 
@@ -18,7 +27,5 @@ public class LevelAchievedWindow extends Window {
     }
 
     @Override
-    public void update() {
-
-    }
+    public void update() { }
 }

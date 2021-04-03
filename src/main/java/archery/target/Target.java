@@ -58,16 +58,16 @@ public class Target extends SpriteObject {
     private void loadTargetItem(Archery world, TargetItems targetItem) {
         switch (targetItem) {
             case Apple:
-                item = new Apple(world, getX(), getY() - Apple.appleSprite.getHeight());
+                item = new Apple(getX(), getY() - Apple.appleSprite.getHeight());
                 break;
             case Vase:
-                item = new Vase(world, getX(), getY() - Vase.vaseSprite.getHeight());
+                item = new Vase(getX(), getY() - Vase.vaseSprite.getHeight());
                 break;
             case Flowerpot:
-                item = new Flowerpot(world, getX(), getY() - Flowerpot.flowerpotSprite.getHeight());
+                item = new Flowerpot(getX(), getY() - Flowerpot.flowerpotSprite.getHeight());
                 break;
             case Balloon:
-                item = new Balloon(world, getX(), getY() - Balloon.balloonSprite.getHeight());
+                item = new Balloon(getX(), getY() - Balloon.balloonSprite.getHeight());
                 break;
         }
     }
