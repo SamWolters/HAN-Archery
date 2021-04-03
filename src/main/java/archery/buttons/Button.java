@@ -40,26 +40,22 @@ public class Button extends GameObject implements IMouseInput {
     }
 
     @Override
-    public void mousePressed(int x, int y, int button) {
-//            System.out.println("button ingedrukt");
-    }
+    public void mousePressed(int x, int y, int button) { }
 
     @Override
-    public void mouseReleased(int x, int y, int button) {}
+    public void mouseReleased(int x, int y, int button) { }
 
     @Override
-    public void mouseMoved(int x, int y) {
-        System.out.println(x);
-    }
+    public void mouseMoved(int x, int y) { }
 
     @Override
-    public void mouseDragged(int x, int y, int button) {}
+    public void mouseDragged(int x, int y, int button) { }
 
     @Override
-    public void mouseWheel(int direction) {}
+    public void mouseWheel(int direction) { }
 
     @Override
-    public void update() {}
+    public void update() { }
 
     /**
      * In the draw method the button is given a stroke, stroke thickness,
@@ -85,10 +81,5 @@ public class Button extends GameObject implements IMouseInput {
         g.textSize(textSize);
         g.textAlign(CENTER);
         g.text(text, getX() + getWidth() / 2, getY() + getHeight() / 2 + 10);
-
-//        System.out.println(getWidth());
-//        System.out.println(getHeight());
-//        System.out.println(getX());
-//        System.out.println(getY());
     }
 }

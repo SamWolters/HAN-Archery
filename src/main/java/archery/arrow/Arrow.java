@@ -2,17 +2,12 @@ package archery.arrow;
 
 import archery.Archery;
 import archery.ground.Ground;
-import archery.ground.GroundTile;
-import archery.levelManager.LevelManager;
-import archery.resources.Resources;
 import archery.target.Target;
 import archery.targetItems.TargetItem;
 import archery.wall.Wall;
-import archery.wall.WallTile;
 import archery.window.GameEndedWindow;
 import archery.window.GameOverWindow;
 import archery.window.LevelAchievedWindow;
-import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
 import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
@@ -24,8 +19,9 @@ import java.util.List;
 
 
 public abstract class Arrow extends SpriteObject implements IArrow {
-    public boolean collided = false;
     Archery world;
+
+    public boolean collided = false;
 
     float rotation, fixedRotation, speed;
     int speedMultiplier = 1;
@@ -35,7 +31,7 @@ public abstract class Arrow extends SpriteObject implements IArrow {
     PVector forces = new PVector(0, 0);
     PVector traj;
     Boolean launched = false;
-    Long lastTimeUpdatesInMs;
+    Long lastTimeUpdatedInMs;
 
     /**
      * Creates a SpriteObject and adds this object to the world.
@@ -85,12 +81,12 @@ public abstract class Arrow extends SpriteObject implements IArrow {
             Date date = new Date();
             long timeMillis = date.getTime();
 
-            if (lastTimeUpdatesInMs == null) {
+            if (lastTimeUpdatedInMs == null) {
                 updateProjectile(0);
             } else {
-                updateProjectile(timeMillis - lastTimeUpdatesInMs);
+                updateProjectile(timeMillis - lastTimeUpdatedInMs);
             }
-            this.lastTimeUpdatesInMs = timeMillis;
+            this.lastTimeUpdatedInMs = timeMillis;
         }
 
     }
@@ -105,7 +101,6 @@ public abstract class Arrow extends SpriteObject implements IArrow {
      *
      * @see PGraphics
      */
-
     @Override
     public void draw(PGraphics g) {
         g.pushMatrix();
@@ -126,7 +121,6 @@ public abstract class Arrow extends SpriteObject implements IArrow {
      *
      * @param rotation      Sets the rotation of the arrow
      */
-
     public void setRotation(float rotation) { this.rotation = rotation; }
 
     /**
@@ -134,7 +128,6 @@ public abstract class Arrow extends SpriteObject implements IArrow {
      *
      * @param speed     Sets the speed for the arrow
      */
-
     public void launch(float speed) {
         fixedRotation = rotation;
 
@@ -165,7 +158,6 @@ public abstract class Arrow extends SpriteObject implements IArrow {
      * @param angle     Sets the arrow at which the arrow is shot
      * @return          Returns the calculated launch Trajectory
      */
-
     public PVector calcLaunchTrajectory(float speed, float angle) {
         return new PVector((speed * (float) Math.cos(Math.toRadians(angle))),
                             -(speed * (float) Math.sin(Math.toRadians(angle))));
