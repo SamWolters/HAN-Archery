@@ -38,7 +38,7 @@ public abstract class Arrow extends SpriteObject implements IArrow {
     Long lastTimeUpdatesInMs;
 
     /**
-     * Creates a SpriteObject and add this object to the world.
+     * Creates a SpriteObject and adds this object to the world.
      * Sets the x, y and z position of the arrow with the given params.
      * Because of collision boxes the width and height are changed.
      *
@@ -66,6 +66,11 @@ public abstract class Arrow extends SpriteObject implements IArrow {
         pos = new PVector(x, y);
     }
 
+
+    /**
+     * When the arrow is shot out of the world a new arrow get loaded in.
+     *
+     */
     @Override
     public void update() {
         if (getX() > world.getWidth() || getY() < 0) {
@@ -91,6 +96,17 @@ public abstract class Arrow extends SpriteObject implements IArrow {
 
     }
 
+    /**
+     * In the draw the arrow is draw.
+     * The pushMatrix function saves the current coordinate of the arrow.
+     * Also the rotation of the arrow is determined.
+     *
+     *
+     * @param g     Uses PGraphics to draw
+     *
+     * @see PGraphics
+     */
+
     @Override
     public void draw(PGraphics g) {
         g.pushMatrix();
@@ -107,7 +123,18 @@ public abstract class Arrow extends SpriteObject implements IArrow {
         g.popMatrix();
     }
 
+    /**
+     *
+     * @param rotation      Sets the rotation of the arrow
+     */
+
     public void setRotation(float rotation) { this.rotation = rotation; }
+
+    /**
+     * Here are the forces, wind and gravity applied to see launch of the arrow.
+     *
+     * @param speed     Sets the speed for the arrow
+     */
 
     public void launch(float speed) {
         fixedRotation = rotation;
@@ -117,15 +144,41 @@ public abstract class Arrow extends SpriteObject implements IArrow {
         launched = true;
     }
 
+    /**
+     *
+     * Sets the forces by which the arrow is effected by.
+     *
+     * @param wind      Sets the wind power
+     * @param gravity   Sets the gravity
+     * @return          Returns the wind and gravity
+     */
+
     public PVector setForces(float wind, float gravity) {
         return new PVector(wind, gravity);
     }
+
+    /**
+     *
+     * Here the launch trajectory is calculated with the speed
+     * and angle of the arrow.
+     *
+     * @param speed     Sets the speed of the arrow
+     * @param angle     Sets the arrow at which the arrow is shot
+     * @return          Returns the calculated launch Trajectory
+     */
 
     public PVector calcLaunchTrajectory(float speed, float angle) {
         return new PVector((speed * (float) Math.cos(Math.toRadians(angle))),
                             -(speed * (float) Math.sin(Math.toRadians(angle))));
     }
 
+    /**
+     * Updates the X and Y position of the arrow.
+     *
+     * @param deltaTime     Calculates the trajectory that had to be set in
+     *                      a amount of time
+     *
+     */
     public void updateProjectile(float deltaTime) {
         float time = deltaTime * .001f;
         traj = PVector.add(traj, PVector.mult(forces, time));
@@ -136,6 +189,13 @@ public abstract class Arrow extends SpriteObject implements IArrow {
         setX((int) pos.x);
         setY((int) pos.y);
     }
+
+    /**
+     *
+     * Checks wether the arrow has collided  with something or not
+     *
+     * @param collidedGameObjects The GameObjects with which a collision should be detected
+     */
 
     @Override
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
