@@ -49,7 +49,6 @@ public abstract class Arrow extends SpriteObject implements IArrow {
      *
      * @see Archery#addGameObject(GameObject this)
      */
-
     public Arrow(Archery world, Sprite arrowSprite, float x, float y) {
         super(arrowSprite);
 

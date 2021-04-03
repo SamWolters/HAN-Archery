@@ -10,19 +10,24 @@ import archery.wall.Wall;
 import processing.core.PVector;
 
 public class Level {
-
-    private Archery world;
     public int id;
     public PVector forces;
+
+    private Archery world;
     private TargetItems targetItem;
     private ArrowTypes arrowType;
-
     private Archer archer;
     private Target target;
     private LevelDashboard dashboard;
 
-    private boolean completed;
-
+    /**
+     * Creates a level
+     * @param world             The main class of the application
+     * @param id                The id of the level
+     * @param forces            The forces reprecent wind and gravity
+     * @param targetItem        The target item the needs to be draw
+     * @param arrowType         The arrow type that needs the be loaded
+     */
     public Level(Archery world, int id, PVector forces, TargetItems targetItem, ArrowTypes arrowType) {
         this.world = world;
 
@@ -32,6 +37,15 @@ public class Level {
         this.arrowType = arrowType;
     }
 
+    /**
+     * Creates all the game objects that are required
+     *
+     * @see Ground#Ground(Archery world)
+     * @see Wall#Wall(Archery world)
+     * @see Archer#Archer(Archery world, float x, float y, ArrowTypes arrowType)
+     * @see Target#Target(Archery world, int, int, TargetItems targetItem)
+     * @see LevelDashboard#LevelDashboard(Level this, float x, float y, float width, float height)
+     */
     public void load() {
         Ground ground = new Ground(world);
         world.addGameObject(ground);
@@ -46,13 +60,5 @@ public class Level {
 
         dashboard = new LevelDashboard(this ,0,0, 200, 100);
         world.addDashboard(dashboard);
-    }
-
-    public void setCompleted() {
-        completed = true;
-    }
-
-    public boolean isCompleted() {
-        return completed;
     }
 }

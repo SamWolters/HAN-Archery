@@ -7,6 +7,11 @@ import nl.han.ica.oopg.objects.SpriteObject;
 public class GroundTile extends SpriteObject {
     public static Sprite groundSprite = new Sprite(Resources.Images.GROUND);
 
+    /**
+     * Creates a SpriteObject
+     * @param x     The x position of GroundTile
+     * @param y     The y position of GroundTile
+     */
     public GroundTile(float x, float y) {
         super(groundSprite);
 
@@ -15,7 +20,5 @@ public class GroundTile extends SpriteObject {
     }
 
     @Override
-    public void update() {
-
-    }
+    public void update() { }
 }
