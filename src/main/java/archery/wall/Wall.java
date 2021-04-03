@@ -17,6 +17,11 @@ public class Wall extends GameObject {
     private ArrayList<WallTile> tiles;
 //    final int amountOfWallTiles = 8;
 
+    /**
+     * Here the wall gets added to the world.
+     *
+     * @param world    Main class of the application
+     */
     public Wall(Archery world) {
         this.world = world;
 
@@ -37,6 +42,11 @@ public class Wall extends GameObject {
 
     }
 
+    /**
+     * Draws multiple tiles with create a big wall
+     *
+     * @param g PGraphics object will be given by the GameEngine.
+     */
     @Override
     public void draw(PGraphics g) {
         for (WallTile tile: tiles) {
@@ -44,6 +54,10 @@ public class Wall extends GameObject {
         }
     }
 
+    /**
+     *  Creates the tile it self. Also sets the height to
+     *  where the tiles should drew.
+     */
     private void createSpriteTiles() {
         for (int i = 0; i < Math.ceil(world.height / WallTile.wallSprite.getHeight()); i++) {
             tiles.add(new WallTile(getX() - 40, getY() + WallTile.wallSprite.getHeight() * i));

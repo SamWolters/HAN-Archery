@@ -12,11 +12,14 @@ import processing.core.PGraphics;
 public class Target extends SpriteObject {
     private TargetItem item;
     private Sprite person;
-    private final int OFFSET_ITEM = 40;
+
     /**
-     * Create a new SpriteObject with a Sprite object.
+     * Create a new target SpriteObject with in the world
      *
-     * @param world The sprite
+     * @param world         Main class of the application
+     * @param x             X position of the target
+     * @param y             Y position of the target
+     * @param targetItem    Loads in target item
      */
     public Target(Archery world, int x, int y, TargetItems targetItem) {
         super(new Sprite(Resources.Images.TARGET_PERSON));
@@ -36,11 +39,22 @@ public class Target extends SpriteObject {
     public void update() {
     }
 
+    /**
+     * Adds person to the world.
+     *
+     * @param g
+     */
     @Override
     public void draw(PGraphics g) {
         g.image(person.getPImage(), x - 60, y);
     }
 
+    /**
+     * Here the target item per level is added.
+     *
+     * @param world         Main class of the application
+     * @param targetItem    Loads in target item
+     */
     private void loadTargetItem(Archery world, TargetItems targetItem) {
         switch (targetItem) {
             case Apple:
