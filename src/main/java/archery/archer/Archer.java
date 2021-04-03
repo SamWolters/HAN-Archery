@@ -16,10 +16,15 @@ public class Archer extends SpriteObject {
     Powerbar powerbar;
 
     /**
-     * Create a new SpriteObject with a Sprite object.
+     * Creates a new SpriteObject, powerbar and bow. With the
+     * given params the archer is placed in the world (game window).
      *
-     * @param world The sprite
-     * @param arrowType
+     * @param world         The main class of the application
+     * @param x             The x position
+     * @param y             The y position
+     * @param arrowType     The arrow type for the bow
+     *
+     * @see Archery
      */
     public Archer(Archery world, float x, float y, ArrowTypes arrowType) {
         super(new Sprite(Resources.Images.ARCHER));
@@ -37,7 +42,7 @@ public class Archer extends SpriteObject {
      * has collided with another gameObject. If so the powerbar
      * method setHold() is called
      *
-     * @see #powerbar
+     * @see Powerbar#setHold() 
      */
     @Override
     public void update() {
@@ -57,8 +62,8 @@ public class Archer extends SpriteObject {
      * @param y         The y position of the mouse
      * @param button    The id of pressed mouse button
      *
-     * @see #bow
-     * @see #powerbar
+     * @see Bow#releaseProjectile(float speed) 
+     * @see Powerbar#getProjectileSpeed() 
      */
     @Override
     public void mouseClicked(int x, int y, int button) {

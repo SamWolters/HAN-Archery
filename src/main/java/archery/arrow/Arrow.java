@@ -38,16 +38,16 @@ public abstract class Arrow extends SpriteObject implements IArrow {
     Long lastTimeUpdatesInMs;
 
     /**
-     * Loads in the SpriteObject of the arrow
-     * By means of the X and Y position the arrow gets placed
-     * into the world
-     *
-     *
+     * Creates a SpriteObject and add this object to the world.
+     * Sets the x, y and z position of the arrow with the given params.
+     * Because of collision boxes the width and height are changed.
      *
      * @param world         Loads the whole world
      * @param arrowSprite   Loads the sprite of the arrow
      * @param x             X position of the arrow
      * @param y             Y position of the arrow
+     *
+     * @see Archery#addGameObject(GameObject this)
      */
 
     public Arrow(Archery world, Sprite arrowSprite, float x, float y) {
@@ -58,7 +58,7 @@ public abstract class Arrow extends SpriteObject implements IArrow {
         setX(x);
         setY(y);
         setZ(3);
-        world.addGameObject(this,(int) x,(int) y);
+        world.addGameObject(this);
 
         setWidth(130);
         setHeight(16);
